@@ -1,3 +1,138 @@
 ---
+import Nav from "../components/Nav.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 
+import flowers from "../imgs/c(edited).png";
+import logo from "../imgs/ankt.svg";
+
+import { Image } from "astro:assets";
+
+import { footerLinks } from "../data/footerLinks";
+
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/cardo";
 ---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body
+        class="bg-LM-Background flex flex-col items-center min-h-screen antialiased"
+    >
+        <Nav />
+
+        <Breadcrumbs />
+        <div class="flex flex-row h-auto space-x-8 max-w-3xl my-4 items-start">
+            <div class="flex flex-col space-y-4 w-1/2">
+                <p>
+                    Hello, welcome to my corner of the World Wide Web. My name
+                    is Aniket Negi. I am currently in university as a sophomore
+                    studying Mechanical Engineering. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Ut et massa mi. Aliquam in
+                    hendrerit urna. Aliquam in hendrerit urna.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                    et massa mi. Aliquam in hendrerit urna. Pellentesque sit
+                    amet sapien fringilla, mattis ligula consectetur, ultrices
+                    mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet
+                    augue. Vestibulum auctor ornare leo, non suscipit magna
+                    interdum eu. Curabitur pellentesque nibh nibh, at maximus
+                    ante fermentum sit amet. Pellentesque commodo lacus at
+                    sodales sodales. Quisque sagittis orci ut diam condimentum,
+                    vel euismod erat placerat. In iaculis arcu eros, eget tempus
+                    orci facilisis id.
+                </p>
+            </div>
+            <div class="flex flex-col space-y-4 w-1/2">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et
+                    massa mi. Aliquam in hendrerit urna. Pellentesque sit amet
+                    sapien fringilla, mattis ligula consectetur, ultrices
+                    mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet
+                    augue. Nullam quis imperdiet augue.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                    et massa mi. Aliquam in hendrerit urna. Pellentesque sit
+                    amet sapien fringilla, mattis ligula consectetur, ultrices
+                    mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet
+                    augue. Vestibulum auctor ornare leo, non suscipit magna
+                    interdum eu. Curabitur pellentesque nibh nibh, at maximus
+                    ante fermentum sit amet. Pellentesque commodo lacus at
+                    sodales sodales. Quisque sagittis orci ut diam condimentum,
+                    vel euismod erat placerat. In iaculis arcu eros, eget tempus
+                    orci facilisis id.
+                </p>
+            </div>
+        </div>
+        <Image
+            class="mt-4 rounded drop-shadow-md"
+            src={flowers}
+            alt="an abstract image"
+            width={768}
+            height={321}
+        />
+        <footer
+            class="mt-auto mb-8 flex flex-row justify-between items-center max-w-3xl w-full"
+        >
+            <div class="flex flex-col space-y-2 justify-center items-start">
+                <Image
+                    src={logo}
+                    alt="Aniket Negi's personal Logo"
+                    width={32}
+                    height={21}
+                />
+                <p>Designed & developed with ❤️ by Aniket Negi.</p>
+            </div>
+
+            <!-- <ul class="flex flex-row justify-between space-x-8">
+                {
+                    footerLinks.map((footerLink) => (
+                        <li>
+                            <a href={footerLink.href}>{footerLink.name}</a>
+                        </li>
+                    ))
+                }
+            </ul> -->
+        </footer>
+    </body>
+</html>
+
+<style>
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    p {
+        color: var(--Light-Mode-LM---Text, #141414);
+        font-family: "Cardo";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135.292%; /* 1.35294rem */
+    }
+    footer p {
+        color: var(--Light-Mode-LM---Text, #141414);
+        font-family: "Cardo";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135.292%; /* 1.35294rem */
+        letter-spacing: -0.01rem;
+    }
+    footer ul li a {
+        color: var(--Light-Mode-LM---Nav-Unselected, #696969);
+        font-family: "IBM Plex Sans";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 129.896%; /* 1.29894rem */
+        letter-spacing: -0.02rem;
+    }
+</style>

@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+
+import { navLinks } from "../data/navLinks";
+
+import logo from "../imgs/ankt.svg";
+---
+
+<header class="my-8 w-full max-w-3xl">
+    <nav class="flex flex-row justify-between items-center">
+        <button>
+            <Image
+                src={logo}
+                alt="Aniket Negi's personal Logo"
+                width={73}
+                height={48}
+            />
+        </button>
+
+        <ul class="flex flex-row justify-between space-x-6 hover:text-LM-Nav-Selected">
+            {
+                navLinks.map((navLink) => (
+                    <li>
+                        <a href={navLink.href}>{navLink.name}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+</header>
+
+<style>
+    li a {
+        color: var(--Light-Mode-LM---Nav-Unselected, #696969);
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.02rem;
+    }
+</style>
