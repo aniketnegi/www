@@ -6,7 +6,7 @@ import { navLinks } from "../data/navLinks";
 import logo from "../imgs/ankt.svg";
 ---
 
-<header class="my-8 w-full max-w-3xl">
+<header class="my-8 w-full lg:max-w-7xl">
     <nav class="flex flex-row justify-between items-center">
         <button>
             <Image
@@ -14,14 +14,17 @@ import logo from "../imgs/ankt.svg";
                 alt="Aniket Negi's personal Logo"
                 width={73}
                 height={48}
+                loading="eager"
             />
         </button>
 
-        <ul class="flex flex-row justify-between space-x-6 hover:text-LM-Nav-Selected">
+        <ul class="flex flex-row justify-between space-x-6">
             {
                 navLinks.map((navLink) => (
                     <li>
-                        <a href={navLink.href}>{navLink.name}</a>
+                        <a class="hover:text-[#16151B]" href={navLink.href}>
+                            {navLink.name}
+                        </a>
                     </li>
                 ))
             }
@@ -32,7 +35,7 @@ import logo from "../imgs/ankt.svg";
 <style>
     li a {
         color: var(--Light-Mode-LM---Nav-Unselected, #696969);
-        font-family: "IBM Plex Sans", sans-serif;
+        font-family: "Manrope Variable", sans-serif;
         font-size: 1rem;
         font-style: normal;
         font-weight: 500;

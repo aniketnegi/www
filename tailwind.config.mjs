@@ -14,9 +14,7 @@ export default {
 		},
 		extend: {
 			spacing: {
-				'8xl': '96rem',
-				'9xl': '128rem',
-				'12xl': '150rem',
+				'6.5xl': '75rem',
 			  },
 		},
 	},

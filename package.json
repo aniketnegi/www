@@ -12,10 +12,9 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/manrope": "^5.0.20",
     "@fontsource/cardo": "^5.0.13",
-    "@fontsource/ibm-plex-sans": "^5.0.20",
     "astro": "^4.7.1",
-    "astro-icon": "^1.1.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   }
