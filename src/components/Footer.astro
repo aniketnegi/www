@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+
+import { footerLinks } from "../data/footerLinks";
+
+import logo from "../imgs/ankt.svg";
+---
+
+<footer
+    class="mt-20 mb-8 flex flex-row justify-between items-center lg:max-w-7xl w-full"
+>
+    <div class="left flex flex-col space-y-2 justify-center items-start">
+        <Image
+            src={logo}
+            alt="Aniket Negi's personal Logo"
+            width={32}
+            height={21}
+            loading="eager"
+        />
+        <p>Designed & developed with ❤️ by Aniket Negi.</p>
+    </div>
+
+    <div class="right flex flex-row items-center space-x-20">
+        <div class="flex flex-col items-center space-y-4 h-full">
+            <div class="flex flex-col items-center space-y-1">
+                <p>Contact Me</p>
+                <!-- <p class="sub">(GPG signature TBD)</p> -->
+            </div>
+
+            <ul class="flex flex-row justify-between space-x-6">
+                {
+                    footerLinks.contact.map((footerLink) => (
+                        <li>
+                            <a target="_blank" href={footerLink.href}>
+                                {footerLink.name}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+        <!-- h-full in the div below is not working for some reason -->
+        <!-- TODO: reomve the hardcoded space-y and make h-full work -->
+        <div class="flex flex-col items-center justify-between space-y-4">
+            <p>Portfolios</p>
+
+            <ul class="flex flex-row justify-between space-x-6">
+                {
+                    footerLinks.portfolio.map((footerLink) => (
+                        <li>
+                            <a target="_blank" href={footerLink.href}>
+                                {footerLink.name}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .left p {
+        color: var(--Light-Mode-LM---Text, #141414);
+        font-family: "Cardo";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135.292%; /* 1.35294rem */
+        letter-spacing: -0.01rem;
+    }
+    ul li a {
+        color: var(--Light-Mode-LM---Nav-Unselected, #696969);
+        font-family: "Manrope Variable";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 129.896%; /* 1.29894rem */
+        letter-spacing: -0.02rem;
+    }
+    .right p {
+        color: var(--Light-Mode-LM---Text, #141414);
+        font-family: "Manrope Variable";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 136.491%; /* 1.36494rem */
+        letter-spacing: -0.02rem;
+    }
+    .right p.sub {
+        color: var(--Light-Mode-LM---Text-Secondary, #b5b5b5);
+        font-family: "Manrope Variable";
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 136.491%; /* 1.19431rem */
+        letter-spacing: -0.0175rem;
+    }
+</style>

@@ -1,0 +1,39 @@
+---
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+interface HomePageLayoutProps {
+    title?: string;
+}
+
+const { title } = Astro.props as HomePageLayoutProps;
+
+// fonts
+import "@fontsource-variable/manrope";
+import "@fontsource/cardo";
+---
+
+<!doctype html>
+<html
+    lang="en"
+    class="selection:bg-[#F48525] selection:text-[#E9E9E9] scroll-smooth"
+>
+    <head>
+        <Head title={title} />
+    </head>
+    <body class="bg-LM-Background flex flex-col items-center min-h-screen">
+        <header class="mt-8 mb-3.5 w-full xl:max-w-7xl md:mx-12 mx-4">
+            <Nav />
+        </header>
+        <main>
+            <slot />
+        </main>
+
+        <footer
+            class="mt-20 mb-8 flex flex-row justify-between items-center lg:max-w-7xl w-full"
+        >
+            <Footer />
+        </footer>
+    </body>
+</html>

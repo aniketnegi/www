@@ -1,0 +1,74 @@
+---
+const siteData = {
+    siteUrl: "https:/aniketnegi.vercel.app/", // Always put "/" at the end of the URL
+    author: "aniketnegi",
+    desc: "A personal website which serves as a place for my interaction with the world. I write blogs and journals about my life and everything in it.",
+    title: "aniket negi's website",
+    ogImage: "favicon.svg",
+    keywords:
+        "Personal website, landing page, developer, home, writing, literature, blogs, technology",
+    // postPerPage: 3
+};
+
+interface HeadProps {
+    title?: string;
+    description?: string;
+    author?: string;
+    keywords?: string;
+    url?: string;
+    twitterhandle?: string;
+    image?: string;
+}
+
+const {
+    title,
+    description,
+    author = siteData.author,
+    keywords,
+    url,
+    twitterhandle,
+    image,
+} = Astro.props as HeadProps;
+
+const siteTitle = title ?? siteData.title;
+const metaDescription = description ? description : siteData.desc;
+const metaKeywords = keywords ? keywords : siteData.keywords;
+const siteURL = url ?? siteData.siteUrl;
+const twitterHandle = twitterhandle ?? "aniketnegs";
+const imagePreview = image ?? `${siteURL}${siteData.ogImage}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+<meta name="twitte:card" content="summary_large_image" />
+<meta name="twitter:creator" content={twitterHandle} />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={imagePreview} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:url" content={siteURL} />
+<meta property="og:image" content={imagePreview} />
+<meta property="og:site_name" content={siteURL} />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={metaDescription} />
+
+<!-- Primary Meta Tags -->
+<title>{siteTitle}</title>
+<meta name="title" content={siteTitle} />
+<meta name="description" content={description} />
+<meta name="generator" content={Astro.generator} />
+<meta name="keywords" content={metaKeywords} />
+<meta name="author" content={author} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Theme Meta Tags -->
+<link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg" />
+<meta name="robots" content="index" />

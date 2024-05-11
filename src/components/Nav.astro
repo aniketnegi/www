@@ -3,11 +3,13 @@ import { Image } from "astro:assets";
 
 import { navLinks } from "../data/navLinks";
 
+import Breadcrumbs from "./Breadcrumbs.astro";
+
 import logo from "../imgs/ankt.svg";
 ---
 
-<header class="my-8 w-full lg:max-w-7xl">
-    <nav class="flex flex-row justify-between items-center">
+<nav class="flex flex-col items-start space-y-12">
+    <div class="flex flex-row justify-between items-center w-full">
         <button>
             <Image
                 src={logo}
@@ -29,8 +31,9 @@ import logo from "../imgs/ankt.svg";
                 ))
             }
         </ul>
-    </nav>
-</header>
+    </div>
+    <Breadcrumbs />
+</nav>
 
 <style>
     li a {
