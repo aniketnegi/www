@@ -71,10 +71,10 @@ import { Icon } from "astro-icon/components";
             <li>
                 <!-- vanilla JS tuto https://www.freecodecamp.org/news/how-to-build-a-responsive-navbar-with-a-toggle-menu-using-flexbox-3438e1d08783/ -->
                 <button
-                    class="flex flex-row justify-between items-center space-x-0.5 text-LM-Nav-Unselected hover:text-LM-Nav-Selected"
+                    class="relative top-[1px] flex flex-row justify-between items-center space-x-0.5 text-LM-Nav-Unselected hover:text-LM-Nav-Selected"
                     ><span>more</span>
                     <div class="h-full w-full flex items-center">
-                        <Icon name="chevronDown"  size={15}/>
+                        <Icon name="chevronDown" class="relative top-[1px]" size={15}/>
                     </div>
                 </button>
             </li>
