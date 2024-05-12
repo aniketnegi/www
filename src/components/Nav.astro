@@ -63,15 +63,20 @@ import { Icon } from "astro-icon/components";
             <li>
                 <a class="hover:text-LM-Nav-Selected" href="/garden/">garden</a>
             </li>
+            <li>
+                <a class="hover:text-LM-Nav-Selected" href="/lit/">lit</a>
+            </li>
             <!-- <NavMoreButton client:visible /> -->
 
             <li>
                 <!-- vanilla JS tuto https://www.freecodecamp.org/news/how-to-build-a-responsive-navbar-with-a-toggle-menu-using-flexbox-3438e1d08783/ -->
                 <button
-                    class="flex flex-row justify-between items-center space-x-1 text-LM-Nav-Unselected hover:text-LM-Nav-Selected"
+                    class="flex flex-row justify-between items-center space-x-0.5 text-LM-Nav-Unselected hover:text-LM-Nav-Selected"
                     ><span>more</span>
-                    <Icon name="chevronDown" class="pt-0.5" /></button
-                >
+                    <div class="h-full w-full flex items-center">
+                        <Icon name="chevronDown"  size={15}/>
+                    </div>
+                </button>
             </li>
         </ul>
     </div>
