@@ -4,9 +4,10 @@ import { Image } from "astro:assets";
 import { navLinks } from "../data/navLinks";
 
 import Breadcrumbs from "./Breadcrumbs.astro";
-import NavMoreButton from "./NavMoreButton";
+// import NavMoreButton from "./NavMoreButton";
 
 import logo from "../imgs/ankt.svg";
+import { Icon } from "astro-icon/components";
 ---
 
 <!-- Desktop Screens -->
@@ -55,14 +56,22 @@ import logo from "../imgs/ankt.svg";
             />
         </button>
 
-        <ul class="flex flex-row items-center space-x-4 text-LM-Nav-Unselected">
+        <ul class="flex flex-row items-end space-x-4 text-LM-Nav-Unselected">
             <li>
                 <a class="hover:text-LM-Nav-Selected" href="/blog/">blog</a>
             </li>
             <li>
                 <a class="hover:text-LM-Nav-Selected" href="/garden/">garden</a>
             </li>
-            <NavMoreButton client:visible />
+            <!-- <NavMoreButton client:visible /> -->
+
+            <li>
+                <button
+                    class="flex flex-row justify-between items-center space-x-1 text-LM-Nav-Unselected hover:text-LM-Nav-Selected"
+                    ><span>more</span>
+                    <Icon name="chevronDown" class="pt-0.5" /></button
+                >
+            </li>
         </ul>
     </div>
     <Breadcrumbs />
