@@ -1,16 +1,19 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 import { navLinks } from "../data/navLinks";
 
 import Breadcrumbs from "./Breadcrumbs.astro";
+import NavMoreButton from "./NavMoreButton";
 
 import logo from "../imgs/ankt.svg";
 ---
 
-<nav class="flex flex-col items-start space-y-12">
+<!-- Desktop Screens -->
+<nav class="hidden sm:flex sm:flex-col sm:items-start sm:space-y-12">
     <div class="flex flex-row justify-between items-center w-full">
-        <button>
+        <button class="hidden sm:block">
             <Image
                 src={logo}
                 alt="Aniket Negi's personal Logo"
@@ -20,11 +23,16 @@ import logo from "../imgs/ankt.svg";
             />
         </button>
 
-        <ul class="flex flex-row justify-between space-x-6">
+        <ul
+            class="flex flex-row justify-between space-x-6 text-LM-Nav-Unselected"
+        >
             {
                 navLinks.map((navLink) => (
                     <li>
-                        <a class="hover:text-[#16151B]" href={navLink.href}>
+                        <a
+                            class="hover:text-LM-Nav-Selected"
+                            href={navLink.href}
+                        >
                             {navLink.name}
                         </a>
                     </li>
@@ -35,10 +43,42 @@ import logo from "../imgs/ankt.svg";
     <Breadcrumbs />
 </nav>
 
+<!-- Phone Screens -->
+<nav class="sm:hidden flex flex-col items-start space-y-8">
+    <div class="flex flex-row justify-between items-center w-full">
+        <button>
+            <Image
+                src={logo}
+                alt="Aniket Negi's personal Logo"
+                width={49}
+                height={32}
+                loading="eager"
+            />
+        </button>
+
+        <ul class="flex flex-row items-center space-x-4 text-LM-Nav-Unselected">
+            <li>
+                <a class="hover:text-LM-Nav-Selected" href="/blog/">blog</a>
+            </li>
+            <li>
+                <a class="hover:text-LM-Nav-Selected" href="/garden/">garden</a>
+            </li>
+            <NavMoreButton client:visible />
+        </ul>
+    </div>
+    <Breadcrumbs />
+</nav>
 <style>
     li a {
-        color: var(--Light-Mode-LM---Nav-Unselected, #696969);
         font-family: "Manrope Variable", sans-serif;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.02rem;
+    }
+    button {
+        font-family: "Manrope Variable";
         font-size: 1rem;
         font-style: normal;
         font-weight: 500;

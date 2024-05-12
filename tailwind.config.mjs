@@ -8,7 +8,9 @@ export default {
 
 			// Light Mode
 			"LM-Background": "#F6F6F6",
+			"LM-Nav-Unselected": "#696969",
 			"LM-Nav-Selected": "#16151B",
+			"LM-Text": "#141414",
 
 
 			// Dark Mode

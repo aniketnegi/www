@@ -9,11 +9,9 @@ import "@fontsource/cardo";
 ---
 
 <BaseLayout>
-    <div
-        class="flex flex-row justify-between  items-center w-full"
-    >
-        <div class="flex flex-row space-x-8 w-1/2">
-            <div class="flex flex-col space-y-4 w-1/2">
+    <div class="flex sm:flex-row flex-col justify-between items-center w-full">
+        <div class="flex sm:flex-row flex-col sm:space-x-8 sm:w-1/2 w-full">
+            <div class="flex flex-col space-y-4 sm:w-1/2 w-full mb-2">
                 <p>
                     Well, you see, I am <em>Aniket Negi</em>. Welcome to my
                     corner of the World Wide Web. I am currently a somphomore at
@@ -40,7 +38,7 @@ import "@fontsource/cardo";
                     to just learn online about topics I am interested in.
                 </p>
             </div>
-            <div class="flex flex-col space-y-4 w-1/2">
+            <div class="flex flex-col space-y-4 sm:w-1/2 w-full mt-2">
                 <p>
                     Knowledge flows like a river and one must drink to quench
                     their thirst. In the words of Baba Rancho "Study to become
@@ -60,14 +58,14 @@ import "@fontsource/cardo";
                         href="/lit">here</a
                     >. Other things in life had me occupied for a while, and I
                     left my practice of writing, but with things now much more
-                    smooth, I intend to restart it. 
+                    smooth, I intend to restart it.
                 </p>
             </div>
         </div>
 
-        <div class="w-1/2 flex justify-center items-center">
+        <div class="sm:w-1/2 w-full flex justify-center items-center">
             <Image
-                class="rounded drop-shadow-xl w-4/6"
+                class="rounded drop-shadow-xl sm:w-4/6 w-11/12 mt-10"
                 src={poji}
                 alt="my photograph"
                 loading="eager"

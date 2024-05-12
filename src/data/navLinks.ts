@@ -37,7 +37,7 @@ export const navLinks: navLink[] = [
         href: "/links/",
     },
     {
-        name: "fun",
+        name: "pgp",
         href: "/pgp/",
     },
 ]
