@@ -8,6 +8,16 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 
 import logo from "../imgs/ankt.svg";
 import { Icon } from "astro-icon/components";
+import MobileNavLinks from "./MobileNavLinks.astro";
+
+import type { Crumb } from "../utils/types";
+
+interface NavProps {
+    current: string,
+    breadcrumbs: Crumb[],
+}
+
+const { current, breadcrumbs } = Astro.props as NavProps;
 ---
 
 <!-- Desktop Screens -->
@@ -30,7 +40,12 @@ import { Icon } from "astro-icon/components";
                 navLinks.map((navLink) => (
                     <li>
                         <a
-                            class="hover:text-LM-Nav-Selected"
+                            class:list={[
+                                navLink.name === current
+                                    ? "text-LM-Nav-Selected"
+                                    : "",
+                                "hover:text-LM-Nav-Selected",
+                            ]}
                             href={navLink.href}
                         >
                             {navLink.name}
@@ -40,13 +55,15 @@ import { Icon } from "astro-icon/components";
             }
         </ul>
     </div>
-    <Breadcrumbs />
+    <Breadcrumbs {breadcrumbs}/>
 </nav>
 
 <!-- Phone Screens -->
 <nav class="sm:hidden flex flex-col items-start space-y-8">
-    <div class="flex flex-row justify-between items-center w-full">
-        <button>
+    <div
+        class="mob-nav-compact flex flex-row justify-between items-center w-full"
+    >
+        <a href="/">
             <Image
                 src={logo}
                 alt="Aniket Negi's personal Logo"
@@ -54,7 +71,7 @@ import { Icon } from "astro-icon/components";
                 height={32}
                 loading="eager"
             />
-        </button>
+        </a>
 
         <ul class="flex flex-row items-center space-x-4 text-LM-Nav-Unselected">
             <li>
@@ -72,16 +89,30 @@ import { Icon } from "astro-icon/components";
                 <!-- vanilla JS tuto https://www.freecodecamp.org/news/how-to-build-a-responsive-navbar-with-a-toggle-menu-using-flexbox-3438e1d08783/ -->
                 <button
                     class="flex flex-row justify-between items-center space-x-0.5 text-LM-Nav-Unselected hover:text-LM-Nav-Selected"
+                    id="mob-nav-expand"
                     ><span>more</span>
                     <div class="h-full w-full flex items-center">
-                        <Icon name="chevronDown" size={15}/>
+                        <Icon name="chevronDown" size={15} />
                     </div>
                 </button>
             </li>
         </ul>
     </div>
-    <Breadcrumbs />
+    <MobileNavLinks current={current} />
+    <Breadcrumbs {breadcrumbs}/>
 </nav>
+
+<script>
+    // hide everything except for the new nav compoenent
+    document.getElementById("mob-nav-expand")?.addEventListener("click", () => {
+        document.querySelector("main")?.classList.toggle("hidden");
+        document.querySelector(".mob-footer")?.classList.toggle("hidden");
+        document.querySelector(".breadcrumbs")?.classList.toggle("hidden");
+        document.querySelector(".mob-nav-compact")?.classList.toggle("hidden");
+        document.querySelector(".mob-nav-expanded")?.classList.toggle("hidden");
+    });
+</script>
+
 <style>
     li a {
         font-family: "Manrope Variable", sans-serif;

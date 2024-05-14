@@ -3,11 +3,15 @@ import Head from "../components/Head.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
-interface HomePageLayoutProps {
-    title?: string;
+import type { Crumb } from "../utils/types";
+
+interface BaseLayoutProps {
+    title?: string,
+    current: string,
+    breadcrumbs: Crumb[],
 }
 
-const { title } = Astro.props as HomePageLayoutProps;
+const { title, current, breadcrumbs } = Astro.props as BaseLayoutProps;
 
 // fonts
 import "@fontsource-variable/manrope";
@@ -24,7 +28,7 @@ import "@fontsource/cardo";
     </head>
     <body class="bg-LM-Background flex flex-col items-center min-h-screen mx-4">
         <header class="my-4 w-full xl:max-w-7xl xl:my-8">
-            <Nav />
+            <Nav {current} {breadcrumbs}/>
         </header>
         <main class="my-4 h-auto xl:max-w-7xl xl:my-0">
             <slot />

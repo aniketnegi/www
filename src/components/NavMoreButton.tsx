@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 // handle the mobile nav menu here instead of Astro
 // TODO: is this good practice??
@@ -20,10 +19,10 @@ const css: string = `
 
 function NavMoreButton() {
 
-    const [toggled, setToggled] = useState(false);
+    // const [toggled, setToggled] = useState(false);
 
     function toggle() {
-        setToggled(!toggled);
+        // setToggled(!toggled);
     }
     return (
         <>
@@ -34,7 +33,7 @@ function NavMoreButton() {
             ><span>more</span>
                 <ChevronDown className="pt-0.5" /></button>
 
-            {toggled && <div className="bg-LM-Background h-screen w-screen z-100" />}
+            {/* {toggled && <div className="bg-LM-Background h-screen w-screen z-100" />} */}
 
             <style>{css}</style>
         </>

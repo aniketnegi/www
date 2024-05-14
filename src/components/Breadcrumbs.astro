@@ -1,19 +1,54 @@
 ---
+import { Icon } from "astro-icon/components";
+import type { Crumb } from "../utils/types";
 
+interface Props {
+    breadcrumbs: Array<Crumb>;
+}
+
+const { breadcrumbs } = Astro.props as Props;
 ---
 
-<span class="text-LM-Nav-Selected my-3.5 w-full lg:max-w-7xl text-left">
-    <!-- For Now -->
-    HOME
-</span>
+<div
+    class="text-LM-Nav-Unselected uppercase my-3.5 w-full lg:max-w-7xl text-left"
+>
+    <ol class="flex flex-row space-x-2 items-center">
+        {
+            breadcrumbs &&
+                breadcrumbs.map((crumb, idx) => (
+                    <>
+                        <li>
+                            <a
+                                class:list={[
+                                    idx === breadcrumbs.length - 1
+                                        ? "text-LM-Nav-Selected"
+                                        : "",
+                                    "hover:text-LM-Nav-Selected",
+                                ]}
+                                {...(idx === breadcrumbs.length - 1
+                                    ? { "aria-current": "page" }
+                                    : {})}
+                                href={crumb.href}
+                            >
+                                {crumb.title}
+                            </a>
+                        </li>
+                        {idx < breadcrumbs.length - 1 && (
+                            <Icon name="chevronRight" size={20} class="text-orange pt-0.5" />
+                        )}
+                    </>
+                ))
+        }
+    </ol>
 
-<style>
-    span {
-        font-family: "Manrope Variable";
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 129.896%; /* 1.13656rem */
-        letter-spacing: -0.0175rem;
-    }
-</style>
+    <style>
+        a {
+            font-family: "Manrope Variable";
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 129.896%; /* 1.13656rem */
+            letter-spacing: -0.0175rem;
+        }
+    </style>
+</div>

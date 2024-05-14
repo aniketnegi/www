@@ -5,6 +5,8 @@ import logo from "../imgs/ankt.svg";
 import "@fontsource/cardo";
 import "@fontsource-variable/manrope";
 import Head from "../components/Head.astro";
+
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 ---
 
 <!doctype html>
@@ -19,7 +21,7 @@ import Head from "../components/Head.astro";
         <div
             class="flex flex-col items-center w-full lg:max-w-7xl space-y-64 mt-8"
         >
-            <button>
+            <a href="/">
                 <Image
                     src={logo}
                     alt="Aniket Negi's personal Logo"
@@ -27,37 +29,40 @@ import Head from "../components/Head.astro";
                     height={64}
                     loading="eager"
                 />
-            </button>
-
+            </a>
             <div class="flex flex-col space-y-12 text-center">
-                <span>404</span>
+                <span>404 Not Found</span>
                 <div class="flex flex-col space-y-3.5">
                     <p>The page you’re looking for could not be found :(</p>
                     <p>
-                        Perhaps you would like to go back <a class="text-orange hover:underline" href="/">home</a>
+                        Perhaps you would like to go back <a
+                            class="text-orange hover:underline"
+                            href="/">home</a
+                        >
                     </p>
                 </div>
             </div>
         </div>
-    </body><style>
-        span {
-            color: var(--Light-Mode-LM---Text, #141414);
-            font-family: "Manrope Variable";
-            font-size: 2.5rem;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 136.491%; /* 3.41225rem */
-            letter-spacing: -0.075rem;
-        }
+        <style>
+            span {
+                color: var(--Light-Mode-LM---Text, #141414);
+                font-family: "Manrope Variable";
+                font-size: 2.5rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 136.491%; /* 3.41225rem */
+                letter-spacing: -0.075rem;
+            }
 
-        p {
-            color: var(--Light-Mode-LM---Text, #141414);
-            font-family: "Cardo";
-            font-size: 1.5rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 135.292%; /* 2.02938rem */
-            letter-spacing: -0.015rem;
-        }
-    </style>
+            p {
+                color: var(--Light-Mode-LM---Text, #141414);
+                font-family: "Cardo";
+                font-size: 1.5rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 135.292%; /* 2.02938rem */
+                letter-spacing: -0.015rem;
+            }
+        </style>
+    </body>
 </html>
