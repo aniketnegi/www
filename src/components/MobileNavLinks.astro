@@ -10,7 +10,7 @@ const { current } = Astro.props as Props;
 ---
 
 <div
-    class="pt-6 flex flex-col items-center justify-center bg-LM-Background w-full h-screen"
+    class="pt-6 flex flex-col items-center justify-center bg-LM-Background w-full h-svh"
 >
     <div class="flex justify-end w-full">
         <button id="mob-nav-collapse">
@@ -18,7 +18,7 @@ const { current } = Astro.props as Props;
         </button>
     </div>
     <ul
-        class="text-LM-Nav-Unselected flex flex-col items-center justify-center space-y-10 h-full w-full"
+        class="text-LM-Nav-Unselected flex flex-col items-center space-y-10 justify-center h-full w-full"
     >
         {
             navLinks.map((navLink) => (
@@ -60,7 +60,7 @@ const { current } = Astro.props as Props;
 <style>
     li a {
         font-family: "Manrope Variable", sans-serif;
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
