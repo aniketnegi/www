@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import { Image } from "astro:assets";
 
 import { navLinks } from "../data/navLinks";
@@ -13,8 +15,8 @@ import MobileNavLinks from "./MobileNavLinks.astro";
 import type { Crumb } from "../utils/types";
 
 interface NavProps {
-    current: string,
-    breadcrumbs: Crumb[],
+    current: string;
+    breadcrumbs: Crumb[];
 }
 
 const { current, breadcrumbs } = Astro.props as NavProps;
@@ -55,14 +57,12 @@ const { current, breadcrumbs } = Astro.props as NavProps;
             }
         </ul>
     </div>
-    <Breadcrumbs {breadcrumbs}/>
+    <Breadcrumbs {breadcrumbs} />
 </nav>
 
 <!-- Phone Screens -->
-<nav class="sm:hidden flex flex-col items-start space-y-8">
-    <div
-        class="mob-nav-compact flex flex-row justify-between items-center w-full"
-    >
+<nav class="mob-nav-compact sm:hidden flex flex-col items-start space-y-8">
+    <div class="flex flex-row justify-between items-center w-full">
         <a href="/">
             <Image
                 src={logo}
@@ -98,18 +98,22 @@ const { current, breadcrumbs } = Astro.props as NavProps;
             </li>
         </ul>
     </div>
+    <Breadcrumbs {breadcrumbs} />
+</nav>
+
+<!-- phone screen expanded -->
+<nav class="mob-nav-expanded hidden sm:hidden">
     <MobileNavLinks current={current} />
-    <Breadcrumbs {breadcrumbs}/>
 </nav>
 
 <script>
-    // hide everything except for the new nav compoenent
+    // hide everything except for the new nav compoenent on clicking more
     document.getElementById("mob-nav-expand")?.addEventListener("click", () => {
         document.querySelector("main")?.classList.toggle("hidden");
         document.querySelector(".mob-footer")?.classList.toggle("hidden");
-        document.querySelector(".breadcrumbs")?.classList.toggle("hidden");
         document.querySelector(".mob-nav-compact")?.classList.toggle("hidden");
         document.querySelector(".mob-nav-expanded")?.classList.toggle("hidden");
+        document.querySelector("header")?.classList.toggle("my-4"); // leads to mob-nav-expanded being lareger than 100vh
     });
 </script>
 

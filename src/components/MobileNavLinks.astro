@@ -1,0 +1,69 @@
+---
+import { Icon } from "astro-icon/components";
+import { navLinks } from "../data/navLinks";
+
+interface Props {
+    current: string;
+}
+
+const { current } = Astro.props as Props;
+---
+
+<div
+    class="pt-6 flex flex-col items-center justify-center bg-LM-Background w-full h-screen"
+>
+    <div class="flex justify-end w-full">
+        <button id="mob-nav-collapse">
+            <Icon name="x" size={30} class="text-LM-Nav-Selected" />
+        </button>
+    </div>
+    <ul
+        class="text-LM-Nav-Unselected flex flex-col items-center justify-center space-y-10 h-full w-full"
+    >
+        {
+            navLinks.map((navLink) => (
+                <li>
+                    <a
+                        class:list={[
+                            navLink.name === current
+                                ? "text-LM-Nav-Selected"
+                                : "",
+                            "hover:text-LM-Nav-Selected",
+                        ]}
+                        href={navLink.href}
+                    >
+                        {navLink.name}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<script>
+    // show everything on clicking x
+    document
+        .getElementById("mob-nav-collapse")
+        ?.addEventListener("click", () => {
+            document.querySelector("main")?.classList.toggle("hidden");
+            document.querySelector(".mob-footer")?.classList.toggle("hidden");
+            document
+                .querySelector(".mob-nav-compact")
+                ?.classList.toggle("hidden");
+            document
+                .querySelector(".mob-nav-expanded")
+                ?.classList.toggle("hidden");
+            document.querySelector("header")?.classList.toggle("my-4"); // leads to mob-nav-expanded being lareger than 100vh
+        });
+</script>
+
+<style>
+    li a {
+        font-family: "Manrope Variable", sans-serif;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.02rem;
+    }
+</style>

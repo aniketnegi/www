@@ -6,9 +6,9 @@ import Footer from "../components/Footer.astro";
 import type { Crumb } from "../utils/types";
 
 interface BaseLayoutProps {
-    title?: string,
-    current: string,
-    breadcrumbs: Crumb[],
+    title?: string;
+    current: string;
+    breadcrumbs: Crumb[];
 }
 
 const { title, current, breadcrumbs } = Astro.props as BaseLayoutProps;
@@ -26,9 +26,9 @@ import "@fontsource/cardo";
     <head>
         <Head title={title} />
     </head>
-    <body class="bg-LM-Background flex flex-col items-center min-h-screen mx-4">
+    <body class="bg-LM-Background flex flex-col items-center mx-6">
         <header class="my-4 w-full xl:max-w-7xl xl:my-8">
-            <Nav {current} {breadcrumbs}/>
+            <Nav {current} {breadcrumbs} />
         </header>
         <main class="my-4 h-auto xl:max-w-7xl xl:my-0">
             <slot />

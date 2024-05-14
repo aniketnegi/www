@@ -16,6 +16,7 @@
     "@fontsource/cardo": "^5.0.13",
     "astro": "^4.7.1",
     "astro-icon": "^1.1.0",
+    "astro-tunnel": "^0.1.6",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
