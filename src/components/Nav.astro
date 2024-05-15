@@ -34,7 +34,7 @@ import "@fontsource-variable/playfair-display";
                 height={48}
                 loading="eager"
             /> -->
-            <span>ankt</span>
+            <span class="logo">ankt</span>
         </button>
 
         <ul
@@ -64,40 +64,38 @@ import "@fontsource-variable/playfair-display";
 
 <!-- Phone Screens -->
 <nav class="mob-nav-compact sm:hidden flex flex-col items-start space-y-8">
-    <div class="flex flex-row justify-between items-center w-full">
+    <div class="flex flex-col space-y-4 items-center w-full">
         <a href="/">
-            <Image
+            <!-- <Image
                 src={logo}
                 alt="Aniket Negi's personal Logo"
                 width={49}
                 height={32}
                 loading="eager"
-            />
+            /> -->
+            <span class="logo-mob">ankt</span>
         </a>
 
-        <ul class="flex flex-row items-center space-x-4 text-LM-Nav-Unselected">
-            <li>
-                <a class="hover:text-LM-Nav-Selected" href="/blog/">blog</a>
-            </li>
-            <li>
-                <a class="hover:text-LM-Nav-Selected" href="/garden/">garden</a>
-            </li>
-            <li>
-                <a class="hover:text-LM-Nav-Selected" href="/lit/">lit</a>
-            </li>
-            <!-- <NavMoreButton client:visible /> -->
-
-            <li>
-                <!-- vanilla JS tuto https://www.freecodecamp.org/news/how-to-build-a-responsive-navbar-with-a-toggle-menu-using-flexbox-3438e1d08783/ -->
-                <button
-                    class="flex flex-row justify-between items-center space-x-0.5 text-LM-Nav-Unselected hover:text-LM-Nav-Selected"
-                    id="mob-nav-expand"
-                    ><span>more</span>
-                    <div class="h-full w-full flex items-center">
-                        <Icon name="chevronDown" size={15} />
-                    </div>
-                </button>
-            </li>
+        <ul
+            class="ul-nav-mob flex flex-row justify-between w-full text-LM-Nav-Unselected"
+        >
+            {
+                navLinks.map((navLink) => (
+                    <li>
+                        <a
+                            class:list={[
+                                navLink.name === current
+                                    ? "text-LM-Nav-Selected"
+                                    : "",
+                                "hover:text-LM-Nav-Selected",
+                            ]}
+                            href={navLink.href}
+                        >
+                            {navLink.name}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </div>
     <Breadcrumbs {breadcrumbs} />
@@ -128,6 +126,16 @@ import "@fontsource-variable/playfair-display";
         line-height: normal;
         letter-spacing: -0.02rem;
     }
+
+    li a {
+        font-family: "Manrope Variable", sans-serif;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.02rem;
+    }
+
     button {
         font-family: "Manrope Variable";
         font-size: 1rem;
@@ -136,7 +144,7 @@ import "@fontsource-variable/playfair-display";
         line-height: normal;
         letter-spacing: -0.02rem;
     }
-    span {
+    span.logo {
         color: var(--Light-Mode-LM---Logo, #f48525);
         font-family: "Playfair Display Variable";
         font-size: 2.25rem;
@@ -145,5 +153,13 @@ import "@fontsource-variable/playfair-display";
         line-height: 133.193%; /* 2.99688rem */
         letter-spacing: -0.0675rem;
     }
-
+    span.logo-mob {
+        color: var(--Light-Mode-LM---Logo, #f48525);
+        font-family: "Playfair Display Variable";
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 133.193%; /* 1.99788rem */
+        letter-spacing: -0.045rem;
+    }
 </style>
