@@ -4,6 +4,9 @@ import { Image } from "astro:assets";
 import { footerLinks } from "../data/footerLinks";
 
 import logo from "../imgs/ankt.svg";
+
+// Supports weights 400-900
+import "@fontsource-variable/playfair-display";
 ---
 
 <!-- Large screens -->
@@ -11,13 +14,15 @@ import logo from "../imgs/ankt.svg";
     class="hidden sm:mt-20 sm:mb-8 sm:flex sm:flex-row sm:justify-between sm:items-center lg:max-w-7xl sm:w-full"
 >
     <div class="left flex flex-col space-y-2 justify-center items-start">
-        <Image
+        <!-- <Image
             src={logo}
             alt="Aniket Negi's personal Logo"
             width={32}
             height={21}
             loading="eager"
-        />
+        /> -->
+
+        <span>ankt</span>
         <p>Designed & developed with ❤️ by Aniket Negi.</p>
     </div>
 
@@ -28,11 +33,17 @@ import logo from "../imgs/ankt.svg";
                 <!-- <p class="sub">(GPG signature TBD)</p> -->
             </div>
 
-            <ul class="flex flex-row justify-between space-x-6 text-LM-Nav-Unselected">
+            <ul
+                class="flex flex-row justify-between space-x-6 text-LM-Nav-Unselected"
+            >
                 {
                     footerLinks.contact.map((footerLink) => (
                         <li>
-                            <a class="hover:text-LM-Nav-Selected" target="_blank" href={footerLink.href}>
+                            <a
+                                class="hover:text-LM-Nav-Selected"
+                                target="_blank"
+                                href={footerLink.href}
+                            >
                                 {footerLink.name}
                             </a>
                         </li>
@@ -45,11 +56,17 @@ import logo from "../imgs/ankt.svg";
         <div class="flex flex-col items-center justify-between space-y-6">
             <p>Portfolios</p>
 
-            <ul class="flex flex-row justify-between space-x-6 text-LM-Nav-Unselected">
+            <ul
+                class="flex flex-row justify-between space-x-6 text-LM-Nav-Unselected"
+            >
                 {
                     footerLinks.portfolio.map((footerLink) => (
                         <li>
-                            <a class="hover:text-LM-Nav-Selected" target="_blank" href={footerLink.href}>
+                            <a
+                                class="hover:text-LM-Nav-Selected"
+                                target="_blank"
+                                href={footerLink.href}
+                            >
                                 {footerLink.name}
                             </a>
                         </li>
@@ -106,6 +123,15 @@ import logo from "../imgs/ankt.svg";
 </footer>
 
 <style>
+    span {
+        color: var(--Light-Mode-LM---Logo, #f48525);
+        font-family: "Playfair Display";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 133.193%; /* 1.33194rem */
+        letter-spacing: -0.03rem;
+    }
     .left p {
         color: var(--Light-Mode-LM---Text, #141414);
         font-family: "Cardo";

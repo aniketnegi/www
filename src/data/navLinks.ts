@@ -17,8 +17,8 @@ export const navLinks: navLink[] = [
         href: "/lit/",
     },
     {
-        name: "projects",
-        href: "/projects/",
+        name: "work",
+        href: "/work/",
     },
     {
         name: "journal",
@@ -28,13 +28,13 @@ export const navLinks: navLink[] = [
         name: "uses",
         href: "/uses/",
     },
+    // {
+    //     name: "fun",
+    //     href: "/fun/",
+    // },
     {
-        name: "fun",
-        href: "/fun/",
-    },
-    {
-        name: "links",
-        href: "/links/",
+        name: "bm",
+        href: "/bm/",
     },
     {
         name: "pgp",

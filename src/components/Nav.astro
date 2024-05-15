@@ -18,19 +18,23 @@ interface NavProps {
 }
 
 const { current, breadcrumbs } = Astro.props as NavProps;
+
+// Supports weights 400-900
+import "@fontsource-variable/playfair-display";
 ---
 
 <!-- Desktop Screens -->
 <nav class="hidden sm:flex sm:flex-col sm:items-start sm:space-y-12">
     <div class="flex flex-row justify-between items-center w-full">
         <button class="hidden sm:block">
-            <Image
+            <!-- <Image
                 src={logo}
                 alt="Aniket Negi's personal Logo"
                 width={73}
                 height={48}
                 loading="eager"
-            />
+            /> -->
+            <span>ankt</span>
         </button>
 
         <ul
@@ -132,4 +136,14 @@ const { current, breadcrumbs } = Astro.props as NavProps;
         line-height: normal;
         letter-spacing: -0.02rem;
     }
+    span {
+        color: var(--Light-Mode-LM---Logo, #f48525);
+        font-family: "Playfair Display Variable";
+        font-size: 2.25rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 133.193%; /* 2.99688rem */
+        letter-spacing: -0.0675rem;
+    }
+
 </style>

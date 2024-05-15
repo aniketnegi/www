@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.5.10",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/manrope": "^5.0.20",
+    "@fontsource-variable/playfair-display": "^5.0.25",
     "@fontsource/cardo": "^5.0.13",
     "astro": "^4.7.1",
     "astro-icon": "^1.1.0",
@@ -21,6 +22,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"
   }
