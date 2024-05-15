@@ -10,19 +10,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
+    "@astrojs/check": "^0.7.0",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/manrope": "^5.0.20",
     "@fontsource-variable/playfair-display": "^5.0.25",
     "@fontsource/cardo": "^5.0.13",
-    "astro": "^4.7.1",
+    "astro": "^4.8.4",
     "astro-icon": "^1.1.0",
-    "astro-tunnel": "^0.1.6",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
+    "astro-tunnel": "^0.1.6",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"
   }
