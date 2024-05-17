@@ -36,30 +36,24 @@ import "@fontsource/cardo";
             <slot />
         </main>
 
-        <script>
-            document.addEventListener("astro:page-load", () => {
-                const theme = (() => {
-                    if (
-                        typeof localStorage !== "undefined" &&
-                        localStorage.getItem("theme")
-                    ) {
-                        return localStorage.theme;
-                    } else if (
-                        window.matchMedia("(prefers-color-scheme: dark)")
-                            .matches
-                    ) {
-                        return "dark";
-                    } else {
-                        return "light";
-                    }
-                })();
+        <script is:inline>
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.theme;
+                } else if (
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                ) {
+                    return "dark";
+                } else {
+                    return "light";
+                }
+            })();
 
-                document.documentElement.classList.toggle(
-                    "dark",
-                    theme === "dark",
-                );
-                localStorage.setItem("theme", theme);
-            });
+            document.documentElement.classList.toggle("dark", theme === "dark");
+            localStorage.setItem("theme", theme);
         </script>
         <Footer />
     </body>
