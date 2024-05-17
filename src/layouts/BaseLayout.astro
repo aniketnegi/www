@@ -26,14 +26,41 @@ import "@fontsource/cardo";
     <head>
         <Head title={title} />
     </head>
-    <body class="bg-LM-Background flex flex-col items-center mx-6">
-        <header class="my-4 w-full xl:max-w-7xl xl:my-8">
+    <body
+        class="bg-LM-Background dark:bg-DM-Background transition ease-in-out text-LM-Text dark:text-DM-Text flex flex-col items-center mx-6"
+    >
+        <header class="mt-6 mb-4 sm:mt-4 w-full xl:max-w-7xl xl:my-8">
             <Nav {current} {breadcrumbs} />
         </header>
         <main class="my-4 h-auto xl:max-w-7xl xl:my-0">
             <slot />
         </main>
 
+        <script>
+            document.addEventListener("astro:page-load", () => {
+                const theme = (() => {
+                    if (
+                        typeof localStorage !== "undefined" &&
+                        localStorage.getItem("theme")
+                    ) {
+                        return localStorage.theme;
+                    } else if (
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches
+                    ) {
+                        return "dark";
+                    } else {
+                        return "light";
+                    }
+                })();
+
+                document.documentElement.classList.toggle(
+                    "dark",
+                    theme === "dark",
+                );
+                localStorage.setItem("theme", theme);
+            });
+        </script>
         <Footer />
     </body>
 </html>

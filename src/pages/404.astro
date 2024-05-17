@@ -1,66 +1,38 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../imgs/ankt.svg";
-
-import "@fontsource/cardo";
-import "@fontsource-variable/manrope";
-import Head from "../components/Head.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!doctype html>
-<html
-    lang="en"
-    class="selection:bg-orange selection:text-[#E9E9E9] scroll-smooth"
->
-    <head>
-        <Head />
-    </head>
-    <body class="bg-LM-Background flex flex-col items-center min-h-screen">
-        <div
-            class="flex flex-col items-center w-full lg:max-w-7xl space-y-64 mt-8"
-        >
-            <a href="/">
-                <Image
-                    src={logo}
-                    alt="Aniket Negi's personal Logo"
-                    width={97}
-                    height={64}
-                    loading="eager"
-                />
-            </a>
-            <div class="flex flex-col space-y-12 text-center">
-                <span>404 Not Found</span>
-                <div class="flex flex-col space-y-3.5">
-                    <p>The page you’re looking for could not be found :(</p>
-                    <p>
-                        Perhaps you would like to go back <a
-                            class="text-orange hover:underline"
-                            href="/">home</a
-                        >
-                    </p>
-                </div>
-            </div>
+<BaseLayout>
+    <div class="flex flex-col space-y-12 text-center">
+        <span>404 Not Found</span>
+        <div class="flex flex-col space-y-3.5">
+            <p>Oops,</p>
+            <p>I seem to have misplaced the page you are looking for :/</p>
+            <p>
+                Perhaps you would like to go back <a
+                    class="text-orange hover:underline"
+                    href="/">home</a
+                >
+            </p>
         </div>
-        <style>
-            span {
-                color: var(--Light-Mode-LM---Text, #141414);
-                font-family: "Manrope Variable";
-                font-size: 2.5rem;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 136.491%; /* 3.41225rem */
-                letter-spacing: -0.075rem;
-            }
+    </div>
+</BaseLayout>
+<style>
+    span {
+        font-family: "Manrope Variable";
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 136.491%; /* 3.41225rem */
+        letter-spacing: -0.075rem;
+    }
 
-            p {
-                color: var(--Light-Mode-LM---Text, #141414);
-                font-family: "Cardo";
-                font-size: 1.5rem;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 135.292%; /* 2.02938rem */
-                letter-spacing: -0.015rem;
-            }
-        </style>
-    </body>
-</html>
+    p {
+        font-family: "Cardo";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135.292%; /* 2.02938rem */
+        letter-spacing: -0.015rem;
+    }
+</style>

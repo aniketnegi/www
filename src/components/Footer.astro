@@ -5,98 +5,32 @@ import { footerLinks } from "../data/footerLinks";
 
 import logo from "../imgs/ankt.svg";
 
+// font's too heavy
 // Supports weights 400-900
-import "@fontsource-variable/playfair-display";
+// import "@fontsource-variable/playfair-display";
 ---
 
-<!--  @TODO --><!-- Remove this method of making 2 navs and hiding one and showing the other, because its bad for accessibility, and apart from that renders everything twice on links and w3m --><!-- Desktop Screens --><!-- Large screens -->
 <footer
-    class="hidden lg:mt-20 lg:mb-8 lg:flex lg:flex-row lg:justify-between lg:items-center lg:max-w-7xl lg:w-full"
+    class="mt-12 mb-8 flex flex-col-reverse space-y-12 space-y-reverse items-start lg:items-center w-full lg:mt-20 lg:flex-row lg:space-y-0 lg:justify-between lg:max-w-7xl"
 >
-    <div class="left flex flex-col space-y-2 justify-center items-start">
-        <!-- <Image
+    <div
+        class="left space-y-3 justify-center items-start w-max flex flex-col"
+    >
+        <Image
             src={logo}
             alt="Aniket Negi's personal Logo"
             width={32}
             height={21}
             loading="eager"
-        /> -->
+        />
 
-        <span>ankt</span>
-        <p>Designed & developed with ❤️ by Aniket Negi.</p>
+        <!-- <span>ankt</span> -->
+        <p class="text-LM-Text dark:text-DM-Text">Designed & developed with ❤️ by Aniket Negi.</p>
     </div>
 
-    <div class="right flex flex-row items-center space-x-20">
-        <div class="flex flex-col items-center space-y-6 h-full">
-            <div class="flex flex-col items-center space-y-1">
-                <p>Contact Me</p>
-                <!-- <p class="sub">(GPG signature TBD)</p> -->
-            </div>
-
-            <ul
-                class="flex flex-row justify-between space-x-6 text-LM-Nav-Unselected"
-            >
-                {
-                    footerLinks.contact.map((footerLink) => (
-                        <li>
-                            <a
-                                class="hover:text-LM-Nav-Selected"
-                                target="_blank"
-                                href={footerLink.href}
-                            >
-                                {footerLink.name}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
-        <!-- h-full in the div below is not working for some reason -->
-        <!-- TODO: reomve the hardcoded space-y and make h-full work -->
-        <div class="flex flex-col items-center justify-between space-y-6">
-            <p>Portfolios</p>
-
-            <ul
-                class="flex flex-row justify-between space-x-6 text-LM-Nav-Unselected"
-            >
-                {
-                    footerLinks.portfolio.map((footerLink) => (
-                        <li>
-                            <a
-                                class="hover:text-LM-Nav-Selected"
-                                target="_blank"
-                                href={footerLink.href}
-                            >
-                                {footerLink.name}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
-    </div>
-</footer>
-
-<!-- Phone Screens -->
-<footer
-    class="mob-footer lg:hidden mt-12 mb-8 flex flex-col items-center w-full space-y-12"
->
-    <ul class="flex flex-row justify-between w-full text-LM-Nav-Unselected">
+    <ul class="flex flex-row lg:space-x-6 w-full lg:w-max justify-between lg:justify-normal text-LM-Nav-Unselected">
         {
-            footerLinks.contact.map((footerLink) => (
-                <li>
-                    <a
-                        class="hover:text-LM-Nav-Selected"
-                        target="_blank"
-                        href={footerLink.href}
-                    >
-                        {footerLink.name}
-                    </a>
-                </li>
-            ))
-        }
-        {
-            footerLinks.portfolio.map((footerLink) => (
+            footerLinks.map((footerLink) => (
                 <li>
                     <a
                         class="hover:text-LM-Nav-Selected"
@@ -109,31 +43,10 @@ import "@fontsource-variable/playfair-display";
             ))
         }
     </ul>
-
-    <div class="mob flex flex-col space-y-3 justify-center items-start w-full">
-        <Image
-            src={logo}
-            alt="Aniket Negi's personal Logo"
-            width={32}
-            height={21}
-            loading="lazy"
-        />
-        <p>Designed & developed with ❤️ by Aniket Negi.</p>
-    </div>
 </footer>
 
 <style>
-    span {
-        color: var(--Light-Mode-LM---Logo, #f48525);
-        font-family: "Playfair Display Variable";
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 133.193%; /* 1.33194rem */
-        letter-spacing: -0.03rem;
-    }
     .left p {
-        color: var(--Light-Mode-LM---Text, #141414);
         font-family: "Cardo";
         font-size: 1rem;
         font-style: normal;
@@ -142,7 +55,6 @@ import "@fontsource-variable/playfair-display";
         letter-spacing: -0.01rem;
     }
     .mob p {
-        color: var(--Light-Mode-LM---Text, #141414);
         font-family: "Cardo";
         font-size: 0.875rem;
         font-style: normal;
@@ -159,7 +71,6 @@ import "@fontsource-variable/playfair-display";
         letter-spacing: -0.02rem;
     }
     .right p {
-        color: var(--Light-Mode-LM---Text, #141414);
         font-family: "Manrope Variable";
         font-size: 1rem;
         font-style: normal;
@@ -168,7 +79,6 @@ import "@fontsource-variable/playfair-display";
         letter-spacing: -0.02rem;
     }
     .right p.sub {
-        color: var(--Light-Mode-LM---Text-Secondary, #b5b5b5);
         font-family: "Manrope Variable";
         font-size: 0.875rem;
         font-style: normal;

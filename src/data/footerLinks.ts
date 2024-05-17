@@ -3,17 +3,13 @@ interface footerLink {
     href: string,
 }
 
-interface footerLinksList {
-    contact: footerLink[],
-    portfolio: footerLink[],
-}
 
-export const footerLinks: footerLinksList = {
-    contact: [{
+export const footerLinks: footerLink[] = [
+    {
         name: "E-mail",
         href: "mailto:aniketnegi@duck.com",
-    }],
-    portfolio: [{
+    },
+    {
         name: "GitHub",
         href: "https://github.com/aniketnegi/",
     },
@@ -24,5 +20,5 @@ export const footerLinks: footerLinksList = {
     {
         name: "YouTube",
         href: "https://www.youtube.com/@aniketnegi00/",
-    }],
-}
+    },
+]

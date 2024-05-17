@@ -2,6 +2,11 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+import { getCollection } from "astro:content";
+const allBlogPosts = await getCollection("blog");
+
+console.log(allBlogPosts);
+
 import lit_banner from "../imgs/lit_banner.png";
 
 import type { Crumb } from "../utils/types";
@@ -72,11 +77,11 @@ const breadcrumbs: Array<Crumb> = [{ title: "literature", href: "/lit/" }];
             </section>
         </div>
     </div>
+    <div></div>
 </BaseLayout>
 
 <style>
     p {
-        color: var(--Light-Mode-LM---Text, #141414);
         font-family: "Cardo";
         font-size: 1rem;
         font-style: normal;

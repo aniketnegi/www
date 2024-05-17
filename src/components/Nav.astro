@@ -4,13 +4,11 @@ import { Image } from "astro:assets";
 import { navLinks } from "../data/navLinks";
 
 import Breadcrumbs from "./Breadcrumbs.astro";
-// import NavMoreButton from "./NavMoreButton";
 
 import logo from "../imgs/ankt.svg";
-import { Icon } from "astro-icon/components";
-import MobileNavLinks from "./MobileNavLinks.astro";
 
 import type { Crumb } from "../utils/types";
+import ThemeIcon from "./ThemeIcon.astro";
 
 interface NavProps {
     current: string;
@@ -18,27 +16,27 @@ interface NavProps {
 }
 
 const { current, breadcrumbs } = Astro.props as NavProps;
-
-// Supports weights 400-900
-import "@fontsource-variable/playfair-display";
 ---
 
-<!--  @TODO --><!-- Remove this method of making 2 navs and hiding one and showing the other, because its bad for accessibility, and apart from that renders everything twice on links and w3m --><!-- Desktop Screens -->
-<nav class="hidden sm:flex sm:flex-col sm:items-start sm:space-y-12">
-    <div class="flex flex-row justify-between items-center w-full">
-        <a class="hidden sm:block">
-            <!-- <Image
-                src={logo}
-                alt="Aniket Negi's personal Logo"
-                width={73}
-                height={48}
-                loading="eager"
-            /> -->
-            <span class="logo">ankt</span>
-        </a>
+<nav class="flex flex-col items-start space-y-8 sm:space-y-12 w-full">
+    <div
+        class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 items-center w-full justify-between h-full"
+    >
+        <div class="flex flex-row justify-between items-center w-full sm:w-fit">
+            <a href="/">
+                <Image
+                    src={logo}
+                    alt="Aniket Negi's personal Logo"
+                    width={73}
+                    height={48}
+                    loading="eager"
+                />
+            </a>
+            <ThemeIcon isMobile={true} />
+        </div>
 
         <ul
-            class="flex flex-row justify-between space-x-6 text-LM-Nav-Unselected"
+            class="flex flex-row justify-between sm:justify-normal items-center h-full sm:space-x-6 w-full sm:w-fit text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
         >
             {
                 navLinks.map((navLink) => (
@@ -46,9 +44,9 @@ import "@fontsource-variable/playfair-display";
                         <a
                             class:list={[
                                 navLink.name === current
-                                    ? "text-LM-Nav-Selected"
+                                    ? "text-LM-Nav-Selected dark:text-DM-Nav-Selected"
                                     : "",
-                                "hover:text-LM-Nav-Selected",
+                                "hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected",
                             ]}
                             href={navLink.href}
                         >
@@ -58,64 +56,10 @@ import "@fontsource-variable/playfair-display";
                 ))
             }
         </ul>
+        <ThemeIcon isMobile={false} />
     </div>
     <Breadcrumbs {breadcrumbs} />
 </nav>
-
-<!-- Phone Screens -->
-<nav class="mob-nav-compact sm:hidden flex flex-col items-start space-y-8">
-    <div class="flex flex-col space-y-4 items-center w-full">
-        <a href="/">
-            <!-- <Image
-                src={logo}
-                alt="Aniket Negi's personal Logo"
-                width={49}
-                height={32}
-                loading="eager"
-            /> -->
-            <span class="logo-mob">ankt</span>
-        </a>
-
-        <ul
-            class="ul-nav-mob flex flex-row justify-between w-full text-LM-Nav-Unselected"
-        >
-            {
-                navLinks.map((navLink) => (
-                    <li>
-                        <a
-                            class:list={[
-                                navLink.name === current
-                                    ? "text-LM-Nav-Selected"
-                                    : "",
-                                "hover:text-LM-Nav-Selected",
-                            ]}
-                            href={navLink.href}
-                        >
-                            {navLink.name}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-    </div>
-    <Breadcrumbs {breadcrumbs} />
-</nav>
-
-<!-- phone screen expanded -->
-<!-- <nav class="mob-nav-expanded hidden sm:hidden">
-    <MobileNavLinks current={current} />
-</nav>
-
-<script>
-    // hide everything except for the new nav compoenent on clicking more
-    document.getElementById("mob-nav-expand")?.addEventListener("click", () => {
-        document.querySelector("main")?.classList.toggle("hidden");
-        document.querySelector(".mob-footer")?.classList.toggle("hidden");
-        document.querySelector(".mob-nav-compact")?.classList.toggle("hidden");
-        document.querySelector(".mob-nav-expanded")?.classList.toggle("hidden");
-        document.querySelector("header")?.classList.toggle("my-4"); // leads to mob-nav-expanded being lareger than 100vh
-    });
-</script> -->
 
 <style>
     li a {
@@ -125,41 +69,5 @@ import "@fontsource-variable/playfair-display";
         font-weight: 500;
         line-height: normal;
         letter-spacing: -0.02rem;
-    }
-
-    li a {
-        font-family: "Manrope Variable", sans-serif;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        letter-spacing: -0.02rem;
-    }
-
-    button {
-        font-family: "Manrope Variable";
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        letter-spacing: -0.02rem;
-    }
-    span.logo {
-        color: var(--Light-Mode-LM---Logo, #f48525);
-        font-family: "Playfair Display Variable";
-        font-size: 2.25rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 133.193%; /* 2.99688rem */
-        letter-spacing: -0.0675rem;
-    }
-    span.logo-mob {
-        color: var(--Light-Mode-LM---Logo, #f48525);
-        font-family: "Playfair Display Variable";
-        font-size: 1.75rem;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 133.193%; /* 1.99788rem */
-        letter-spacing: -0.045rem;
     }
 </style>
