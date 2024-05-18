@@ -2,13 +2,12 @@
 import { Image } from "astro:assets";
 
 import { navLinks } from "../data/navLinks";
+import type { Crumb } from "../utils/types";
 
 import Breadcrumbs from "./Breadcrumbs.astro";
+import ThemeIcon from "./ThemeIcon.astro";
 
 import logo from "../imgs/ankt.svg";
-
-import type { Crumb } from "../utils/types";
-import ThemeIcon from "./ThemeIcon.astro";
 
 interface NavProps {
     current: string;
@@ -32,7 +31,9 @@ const { current, breadcrumbs } = Astro.props as NavProps;
                     loading="eager"
                 />
             </a>
-            <ThemeIcon isMobile={true} key={0}/>
+            <div class="block sm:hidden">
+                <ThemeIcon key={0} />
+            </div>
         </div>
 
         <ul
@@ -56,7 +57,9 @@ const { current, breadcrumbs } = Astro.props as NavProps;
                 ))
             }
         </ul>
-        <ThemeIcon isMobile={false} key={1}/>
+        <div class="sm:block hidden">
+            <ThemeIcon key={1} />
+        </div>
     </div>
     <Breadcrumbs {breadcrumbs} />
 </nav>

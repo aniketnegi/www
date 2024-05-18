@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
+    "astro-themes": "^0.2.5",
     "astro-tunnel": "^0.1.6",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"

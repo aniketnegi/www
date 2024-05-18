@@ -3,17 +3,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-    <div class="flex flex-col space-y-12 text-center">
-        <span>404 Not Found</span>
-        <div class="flex flex-col space-y-3.5">
-            <p>Oops,</p>
-            <p>I seem to have misplaced the page you are looking for :/</p>
-            <p>
-                Perhaps you would like to go back <a
-                    class="text-orange hover:underline"
-                    href="/">home</a
-                >
-            </p>
+    <div class="w-full h-full flex flex-col items-center">
+        <div
+            class="flex flex-col space-y-12 items-center text-center h-full w-max bg-LM-Secondary dark:bg-DM-Secondary shadow-xl rounded-xl sm:py-8 sm:px-16 p-4"
+        >
+            <span>404 Not Found</span>
+            <div class="flex flex-col space-y-3.5">
+                <p>You seem to be lost...</p>
+                <p>
+                    Perhaps you would like to go back <a
+                        class="text-orange hover:underline"
+                        href="/">home</a
+                    >
+                </p>
+            </div>
         </div>
     </div>
 </BaseLayout>
@@ -28,7 +31,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     }
 
     p {
-        font-family: "Cardo";
+        font-family: "Manrope Variable";
         font-size: 1rem;
         font-style: normal;
         font-weight: 400;

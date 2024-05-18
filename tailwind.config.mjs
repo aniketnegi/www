@@ -32,8 +32,7 @@ export default {
 			},
 		},
 	},
-	plugins: [
-		require('@tailwindcss/typography'),
-	],
-	darkMode: 'class',
+	darkMode: ['selector', '[data-theme="dark"]'],
+
+
 }
