@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    url: string;
+    blogTitle: string;
+    blogTags: string[];
+    blogDescription: string;
+    blogAuthor: string;
+    blogPubDate: Date;
+}
+
+const { url, blogTitle, blogTags, blogDescription, blogAuthor, blogPubDate } =
+    Astro.props as Props;
+---
+
+<div class="flex flex-col items-start">
+    <div
+        class="flex flex-col space-y-1 sm:space-y-0 sm:flex-row sm:space-x-8 mb-1 items-start sm:items-center"
+    >
+        <h3
+            class="font-sans text-base font-medium text-LM-Text dark:text-DM-Text uppercase tracking-[-.02rem]"
+        >
+            <a href={url}>{blogTitle}</a>
+        </h3>
+        <ul
+            class="flex flex-row space-x-0.5 font-sans text-sm pb-1 text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+        >
+            {
+                blogTags.map((tag, idx) => (
+                    <>
+                        <li>
+                            <a
+                                class="hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected"
+                                href="#"
+                            >
+                                {tag}
+                            </a>
+                        </li>
+
+                        {idx < blogTags.length - 1 && (
+                            <Icon
+                                name="dot"
+                                size={20}
+                                class="text-LM-Nav-Selected dark:text-DM-Nav-Selected"
+                            />
+                        )}
+                    </>
+                ))
+            }
+        </ul>
+    </div>
+    <p
+        class="mt-1 mb-2 font-serif text-base text-LM-Text w-full lg:w-9/12 dark:text-DM-Text"
+    >
+        {blogDescription.toString()}
+    </p>
+    <div class="mt-2 flex flex-row items-center">
+        <!-- TODO@ankt: Author Content Collection -->
+        <a
+            class="font-sans text-sm tracking-[-0.02rem] font-medium text-LM-Nav-Unselected dark:text-DM-Nav-Unselected hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected"
+            href="#">{blogAuthor}</a
+        >
+        <Icon
+            name="dot"
+            size={20}
+            class="text-LM-Nav-Selected dark:text-DM-Nav-Selected"
+        />
+        <span
+            class="font-sans text-sm tracking-[-0.02rem] font-medium text-LM-Text dark:text-DM-Text"
+            >{
+                `${blogPubDate.getDay()}, ${`0${blogPubDate.getDate().toString().slice(-2)}`} ${blogPubDate.toLocaleString("default", { month: "short" })} ${blogPubDate.getFullYear()}`
+            }</span
+        >
+    </div>
+</div>

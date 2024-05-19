@@ -1,13 +1,48 @@
 ---
+import { getCollection } from "astro:content";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPostCard from "../components/blog/BlogPostCard.astro";
 
 import type { Crumb } from "../utils/types";
 
 const title = "ankt / blog";
 const current = "blog";
 const breadcrumbs: Array<Crumb> = [{ title: "BLOG", href: "/blog/" }];
+
+const blogPosts = await getCollection("blog");
 ---
 
 <BaseLayout {title} {current} {breadcrumbs}>
-    <div>hi</div>
+    <div class="flex flex-col space-y-4 mb-10">
+        <h1
+            class="text-LM-Text dark:text-DM-Text font-sans text-2xl uppercase tracking-[-0.015rem] font-medium"
+        >
+            WELCOME TO MY BLOG
+        </h1>
+        <p
+            class="lg:w-7/12 text-LM-Text dark:text-DM-Text font-serif text-base font-normal"
+        >
+            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa
+            mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien
+            fringilla, mattis ligula consectetur, ultrices mauris. Maecenas
+            vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor
+            ornare leo, non suscipit magna interdum eu. Curabitur pellentesque
+            nibh nibh, at maximus ante fermentum sit amet.
+        </p>
+    </div>
+    <div class="flex flex-col space-y-16 items-start mt-10">
+        {
+            blogPosts.map((blogPost) => (
+                <BlogPostCard
+                    url={`/blog/${blogPost.slug}/`}
+                    blogTitle={blogPost.data.title}
+                    blogTags={blogPost.data.tags}
+                    blogDescription={blogPost.data.description}
+                    blogAuthor={blogPost.data.author}
+                    blogPubDate={blogPost.data.pubDate}
+                />
+            ))
+        }
+    </div>
 </BaseLayout>

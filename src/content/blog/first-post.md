@@ -1,7 +1,7 @@
 ---
 title: 'My First Blog Post'
 pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog.'
+description: 'This is a short paragraph that describes the content of the blog. It also says how I got the idea, and anything else that might be relevant. 2-3 lines. nim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur'
 author: 'Astro Learner'
 banner:
     url: 'https://docs.astro.build/assets/full-logo-light.png'

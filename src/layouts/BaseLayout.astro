@@ -3,6 +3,8 @@ import Head from "../components/Head.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
+import { ViewTransitions } from "astro:transitions";
+
 import ThemeManager from "../components/ThemeManager.astro";
 
 import type { Crumb } from "../utils/types";
@@ -28,6 +30,7 @@ import "@fontsource/cardo";
     <head>
         <Head title={title} />
         <ThemeManager />
+        <ViewTransitions />
     </head>
     <body
         class="bg-LM-Background dark:bg-DM-Background transition ease-in-out text-LM-Text dark:text-DM-Text flex flex-col items-center mx-6"
