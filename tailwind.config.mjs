@@ -4,7 +4,7 @@ export default {
 	theme: {
 		colors: {
 			// Common
-			"orange": "#f48525",
+			"orange": "#ff7100",
 
 			// Light Mode
 			"LM-White": "#e9e9e9",
@@ -26,9 +26,14 @@ export default {
 			"DM-Text": "#e9e9e9",
 
 		},
+		fontFamily: {
+			"sans": ["Manrope Variable", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+			"serif": ["Newsreader Variable", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+			"mono": ["JetBrains Mono Variable", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+		},
 		extend: {
 			spacing: {
-				'6.5xl': '75rem',
+				// '6.5xl': '75rem',
 			},
 		},
 	},

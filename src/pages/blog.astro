@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import type { Crumb } from "../utils/types";
+
+const title = "ankt / blog";
+const current = "blog";
+const breadcrumbs: Array<Crumb> = [{ title: "BLOG", href: "/blog/" }];
+---
+
+<BaseLayout {title} {current} {breadcrumbs}>
+    <div>hi</div>
+</BaseLayout>

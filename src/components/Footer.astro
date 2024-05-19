@@ -13,9 +13,7 @@ import logo from "../imgs/ankt.svg";
 <footer
     class="mt-12 mb-8 flex flex-col-reverse space-y-12 space-y-reverse items-start lg:items-center w-full lg:mt-20 lg:flex-row lg:space-y-0 lg:justify-between lg:max-w-7xl"
 >
-    <div
-        class="left space-y-3 justify-center items-start w-max flex flex-col"
-    >
+    <div class="left space-y-3 justify-center items-start w-max flex flex-col">
         <Image
             src={logo}
             alt="Aniket Negi's personal Logo"
@@ -25,15 +23,21 @@ import logo from "../imgs/ankt.svg";
         />
 
         <!-- <span>ankt</span> -->
-        <p class="text-LM-Text dark:text-DM-Text">Designed & developed with ❤️ by Aniket Negi.</p>
+        <p
+            class="text-LM-Text dark:text-DM-Text font-serif text-normal tracking-[-0.00875rem] sm:tracking-[-0.01rem] text-[0.875rem] sm:text-base"
+        >
+            Designed & developed with ❤️ by Aniket Negi.
+        </p>
     </div>
 
-    <ul class="flex flex-row lg:space-x-6 w-full lg:w-max justify-between lg:justify-normal text-LM-Nav-Unselected dark:text-DM-Nav-Unselected">
+    <ul
+        class="flex flex-row lg:space-x-6 w-full lg:w-max justify-between lg:justify-normal text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+    >
         {
             footerLinks.map((footerLink) => (
                 <li>
                     <a
-                        class="hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected"
+                        class="hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected font-sans text-base font-medium tracking-[-0.02rem]"
                         target="_blank"
                         href={footerLink.href}
                     >
@@ -44,46 +48,3 @@ import logo from "../imgs/ankt.svg";
         }
     </ul>
 </footer>
-
-<style>
-    .left p {
-        font-family: "Cardo";
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 135.292%; /* 1.35294rem */
-        letter-spacing: -0.01rem;
-    }
-    .mob p {
-        font-family: "Cardo";
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 135.292%; /* 1.18381rem */
-        letter-spacing: -0.00875rem;
-    }
-    ul li a {
-        font-family: "Manrope Variable";
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 129.896%; /* 1.29894rem */
-        letter-spacing: -0.02rem;
-    }
-    .right p {
-        font-family: "Manrope Variable";
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 136.491%; /* 1.36494rem */
-        letter-spacing: -0.02rem;
-    }
-    .right p.sub {
-        font-family: "Manrope Variable";
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 136.491%; /* 1.19431rem */
-        letter-spacing: -0.0175rem;
-    }
-</style>

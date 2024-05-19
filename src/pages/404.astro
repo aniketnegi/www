@@ -7,8 +7,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div
             class="flex flex-col space-y-12 items-center text-center h-full w-max bg-LM-Secondary dark:bg-DM-Secondary shadow-xl rounded-xl sm:py-8 sm:px-16 p-4"
         >
-            <span>404 Not Found</span>
-            <div class="flex flex-col space-y-3.5">
+            <span class="font-sans text-2xl font-medium tracking-[-0.075rem]"
+                >404 Not Found</span
+            >
+            <div
+                class="flex flex-col space-y-3.5 font-sans text-base font-normal tracking-tight[-0.015rem]"
+            >
                 <p>You seem to be lost...</p>
                 <p>
                     Perhaps you would like to go back <a
@@ -20,22 +24,3 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
     </div>
 </BaseLayout>
-<style>
-    span {
-        font-family: "Manrope Variable";
-        font-size: 1.5rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 136.491%; /* 3.41225rem */
-        letter-spacing: -0.075rem;
-    }
-
-    p {
-        font-family: "Manrope Variable";
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 135.292%; /* 2.02938rem */
-        letter-spacing: -0.015rem;
-    }
-</style>

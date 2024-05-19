@@ -12,7 +12,9 @@
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/jetbrains-mono": "^5.0.21",
     "@fontsource-variable/manrope": "^5.0.20",
+    "@fontsource-variable/newsreader": "^5.0.19",
     "@fontsource-variable/playfair-display": "^5.0.25",
     "@fontsource/cardo": "^5.0.13",
     "@playform/compress": "^0.0.4",

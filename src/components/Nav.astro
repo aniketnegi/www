@@ -8,6 +8,7 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 
 import logo from "../imgs/ankt.svg";
+// import "@fontsource-variable/playfair-display";
 
 interface NavProps {
     current: string;
@@ -23,6 +24,7 @@ const { current, breadcrumbs } = Astro.props as NavProps;
     >
         <div class="flex flex-row justify-between items-center w-full sm:w-fit">
             <a href="/">
+                <!-- font(playfair display) is too big(40kb) for 4 letters, might optimise in future -->
                 <Image
                     src={logo}
                     alt="Aniket Negi's personal Logo"
@@ -37,7 +39,7 @@ const { current, breadcrumbs } = Astro.props as NavProps;
         </div>
 
         <ul
-            class="flex flex-row justify-between sm:justify-normal items-center h-full sm:space-x-6 w-full sm:w-fit text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+            class="flex flex-row justify-between sm:justify-normal items-center h-full sm:space-x-6 w-full sm:w-fit text-LM-Nav-Unselected dark:text-DM-Nav-Unselected font-sans text-base font-medium tracking-tight"
         >
             {
                 navLinks.map((navLink) => (
@@ -64,13 +66,13 @@ const { current, breadcrumbs } = Astro.props as NavProps;
     <Breadcrumbs {breadcrumbs} />
 </nav>
 
-<style>
-    li a {
-        font-family: "Manrope Variable", sans-serif;
-        font-size: 1rem;
+<!-- <style>
+    span.logo {
+        font-family: "Playfair Display";
+        font-size: 2.25rem;
         font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        letter-spacing: -0.02rem;
+        font-weight: 800;
+        line-height: 133.193%; /* 2.99688rem */
+        letter-spacing: -0.0675rem;
     }
-</style>
+</style> -->
