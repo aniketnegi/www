@@ -69,7 +69,7 @@ const { url, blogTitle, blogTags, blogDescription, blogAuthor, blogPubDate } =
         <span
             class="font-sans text-sm tracking-[-0.02rem] font-medium text-LM-Text dark:text-DM-Text"
             >{
-                `${blogPubDate.getDay()}, ${`0${blogPubDate.getDate().toString().slice(-2)}`} ${blogPubDate.toLocaleString("default", { month: "short" })} ${blogPubDate.getFullYear()}`
+                `${blogPubDate.toLocaleDateString("default", { weekday: "short" })}, ${`0${blogPubDate.getDate().toString().slice(-2)}`} ${blogPubDate.toLocaleString("default", { month: "short" })} ${blogPubDate.getFullYear()}`
             }</span
         >
     </div>
