@@ -24,7 +24,7 @@ const { breadcrumbs } = Astro.props as Props;
                                         ? "text-LM-Nav-Selected dark:text-DM-Nav-Selected"
                                         : "",
                                     "hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected",
-                                    "h-full"
+                                    "h-full",
                                 ]}
                                 {...(idx === breadcrumbs.length - 1
                                     ? { "aria-current": "page" }
@@ -37,8 +37,8 @@ const { breadcrumbs } = Astro.props as Props;
                         {idx < breadcrumbs.length - 1 && (
                             <Icon
                                 name="chevronRight"
-                                size={20}
-                                class="text-orange h-full pb-0.5"
+                                size={16}
+                                class="text-orange"
                             />
                         )}
                     </>

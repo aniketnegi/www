@@ -31,10 +31,19 @@ export default {
 			"serif": ["Newsreader Variable", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
 			"mono": ["JetBrains Mono Variable", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
 		},
+
 		extend: {
 			spacing: {
 				// '6.5xl': '75rem',
 			},
+			// typography: ({ theme }) => ({
+			// 	gray: {
+			// 		css: {
+			// 			'--tw-prose--pre-bg': "#e9e9e9", // LM-White
+			// 			'--tw-prose-invert-pre-bg': "#070707", // DM-Black
+			// 		}
+			// 	}
+			// }),
 		},
 	},
 	darkMode: ['selector', '[data-theme="dark"]'],
