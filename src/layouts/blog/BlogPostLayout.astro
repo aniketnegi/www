@@ -40,7 +40,7 @@ const breadcrumbs: Array<Crumb> = [
             {
                 banner && (
                     <Image
-                        class="w-full mb-10 shadow-xl rounded-md"
+                        class="w-full mb-10"
                         src={banner.url}
                         alt={banner.alt}
                     />
@@ -48,9 +48,7 @@ const breadcrumbs: Array<Crumb> = [
             }
 
             <div class="flex flex-col items-start space-y-6 mb-24">
-                <h1
-                    class="font-sans text-4xl font-medium tracking-[-0.02rem]"
-                >
+                <h1 class="font-sans text-4xl font-medium tracking-[-0.02rem]">
                     {title}
                 </h1>
                 <div class="flex flex-col space-y-6 items-start">
