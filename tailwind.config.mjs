@@ -38,6 +38,9 @@ export default {
 		},
 	},
 	darkMode: ['selector', '[data-theme="dark"]'],
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 
 
 }

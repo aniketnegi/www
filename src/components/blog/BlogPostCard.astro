@@ -1,17 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
 
+import type { CollectionEntry } from "astro:content";
+
 interface Props {
-    url: string;
-    blogTitle: string;
-    blogTags: string[];
-    blogDescription: string;
-    blogAuthor: string;
-    blogPubDate: Date;
+    blogPost: CollectionEntry<"blog">;
 }
 
-const { url, blogTitle, blogTags, blogDescription, blogAuthor, blogPubDate } =
-    Astro.props as Props;
+const { blogPost } = Astro.props as Props;
+
+const { title, tags, description, author, pubDate } = blogPost.data;
+
+const url = `/blog/${blogPost.slug}/`;
+
+const dotw = pubDate.toLocaleDateString("default", { weekday: "short" }); // Day of The Week
+const date = `${pubDate.getDate() < 10 ? "0" : ""}${pubDate.getDate().toString().slice(-2)}`;
+const month = pubDate.toLocaleString("default", { month: "short" });
+const year = pubDate.getFullYear();
 ---
 
 <div class="flex flex-col items-start">
@@ -21,13 +26,13 @@ const { url, blogTitle, blogTags, blogDescription, blogAuthor, blogPubDate } =
         <h3
             class="font-sans text-base font-medium text-LM-Text dark:text-DM-Text uppercase tracking-[-.02rem]"
         >
-            <a href={url}>{blogTitle}</a>
+            <a href={url} >{title}</a>
         </h3>
         <ul
-            class="flex flex-row space-x-0.5 font-sans text-sm pb-1 text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+            class="flex flex-row space-x-0.5 font-sans text-sm tracking[-0.0175rem] pb-1 text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
         >
             {
-                blogTags.map((tag, idx) => (
+                tags.map((tag, idx) => (
                     <>
                         <li>
                             <a
@@ -38,7 +43,7 @@ const { url, blogTitle, blogTags, blogDescription, blogAuthor, blogPubDate } =
                             </a>
                         </li>
 
-                        {idx < blogTags.length - 1 && (
+                        {idx < tags.length - 1 && (
                             <Icon
                                 name="dot"
                                 size={20}
@@ -53,13 +58,13 @@ const { url, blogTitle, blogTags, blogDescription, blogAuthor, blogPubDate } =
     <p
         class="mt-1 mb-2 font-serif text-base text-LM-Text w-full lg:w-9/12 dark:text-DM-Text"
     >
-        {blogDescription.toString()}
+        {description.toString()}
     </p>
     <div class="mt-2 flex flex-row items-center">
         <!-- TODO@ankt: Author Content Collection -->
         <a
             class="font-sans text-sm tracking-[-0.02rem] font-medium text-LM-Nav-Unselected dark:text-DM-Nav-Unselected hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected"
-            href="#">{blogAuthor}</a
+            href="#">{author}</a
         >
         <Icon
             name="dot"
@@ -68,9 +73,7 @@ const { url, blogTitle, blogTags, blogDescription, blogAuthor, blogPubDate } =
         />
         <span
             class="font-sans text-sm tracking-[-0.02rem] font-medium text-LM-Text dark:text-DM-Text"
-            >{
-                `${blogPubDate.toLocaleDateString("default", { weekday: "short" })}, ${`0${blogPubDate.getDate().toString().slice(-2)}`} ${blogPubDate.toLocaleString("default", { month: "short" })} ${blogPubDate.getFullYear()}`
-            }</span
+            >{`${dotw}, ${date} ${month} ${year}`}</span
         >
     </div>
 </div>

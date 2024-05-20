@@ -1,8 +1,106 @@
 ---
-const { frontmatter } = Astro.props;
+import BaseLayout from "../BaseLayout.astro";
+
+import type { Crumb } from "../../utils/types";
+import { Image } from "astro:assets";
+
+import { Icon } from "astro-icon/components";
+
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    frontmatter: CollectionEntry<"blog">;
+    slug: string;
+}
+
+const { frontmatter, slug } = Astro.props as Props;
+
+const { title, tags, description, author, banner, pubDate } = frontmatter.data;
+
+const dotw = pubDate.toLocaleDateString("default", { weekday: "short" }); // Day of The Week
+const date = `${pubDate.getDate() < 10 ? "0" : ""}${pubDate.getDate().toString().slice(-2)}`;
+const month = pubDate.toLocaleString("default", { month: "short" });
+const year = pubDate.getFullYear();
+
+const pageTitle = `blog / ${title}`;
+const current = "blog";
+const breadcrumbs: Array<Crumb> = [
+    { title: "BLOG", href: "/blog/" },
+    { title: title, href: `/blog/${slug}/` },
+];
 ---
 
-<div>
-    here you DODOIDAJSOFSIJFODIJFOSDIFJODFJI <br />
-    <slot />
-</div>
+<!-- https://docs.astro.build/en/guides/markdown-content/ -->
+<BaseLayout title={pageTitle} {current} {breadcrumbs}>
+    <!-- TODO@ankt -->
+    <div class="flex flex-row space-x-8 full px-4 lg:px-32">
+        <!-- TODO@ankt: for now hidden -->
+        <!-- <div class="hidden w-2/12">TOC</div> -->
+        <div class="flex flex-col">
+            {
+                banner && (
+                    <Image
+                        class="w-full mb-16"
+                        src={banner.url}
+                        alt={banner.alt}
+                    />
+                )
+            }
+
+            <div class="flex flex-col items-start space-y-8 mb-24">
+                <h1
+                    class="font-sans text-[2rem] font-medium tracking-[-0.02rem]"
+                >
+                    {title}
+                </h1>
+                <div class="flex flex-col space-y-6 items-start">
+                    <p
+                        class="font-sans text-base font-normal tracking-[-0.01rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+                    >
+                        {`${dotw}, ${date} ${month} ${year}`}
+                    </p>
+                    <p
+                        class="font-serif text-base font-normal tracking-[-0.01rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+                    >
+                        {description}
+                    </p>
+
+                    <ul
+                        class="flex flex-row space-x-0.5 font-sans text-sm pb-1 tracking[-0.0175rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+                    >
+                        {
+                            tags.map((tag, idx) => (
+                                <>
+                                    <li>
+                                        <a
+                                            class="hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected"
+                                            href="#"
+                                        >
+                                            {tag}
+                                        </a>
+                                    </li>
+
+                                    {idx < tags.length - 1 && (
+                                        <Icon
+                                            name="dot"
+                                            size={20}
+                                            class="text-LM-Nav-Selected dark:text-DM-Nav-Selected"
+                                        />
+                                    )}
+                                </>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="prose prose-a:text-orange prose-a:no-underline prose-a:underline-offset-2 hover:prose-a:underline prose-headings:font-sans prose-p:font-serif prose-code:font-mono prose-headings:font-normal prose-headings:tracking-[-0.03rem] max-w-none text-LM-Text dark:text-DM-Text prose-headings:text-LM-Text dark:prose-headings:text-DM-Text"
+            >
+                <slot />
+            </div>
+        </div>
+        <!-- TODO@ankt: for now hidden -->
+        <!-- <div class="hidden" >REFERENCES: TBD</div> -->
+    </div>
+</BaseLayout>

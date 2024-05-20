@@ -2,12 +2,13 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import tunnel from "astro-tunnel";
-
 import playformCompress from "@playform/compress";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), icon(), tunnel(), playformCompress()],
+  integrations: [tailwind(), icon(), tunnel(), playformCompress(), mdx()],
   site: "https://aniketnegi.vercel.app",
   trailingSlash: 'always'
 });
