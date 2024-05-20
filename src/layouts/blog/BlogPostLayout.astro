@@ -37,10 +37,10 @@ const breadcrumbs: Array<Crumb> = [
 <!-- https://docs.astro.build/en/guides/markdown-content/ -->
 <BaseLayout title={pageTitle} {current} {breadcrumbs}>
     <!-- TODO@ankt -->
-    <div class="flex flex-row justify-center w-full">
+    <div class="flex flex-row justify-center">
         <!-- TODO@ankt: for now hidden -->
         <!-- <div class="hidden w-2/12">TOC</div> -->
-        <div class="flex flex-col w-full">
+        <div class="flex flex-col w-max max-w-4xl">
             {
                 banner && (
                     <Image
@@ -97,7 +97,7 @@ const breadcrumbs: Array<Crumb> = [
             </div>
 
             <div
-                class="prose prose-a:text-orange prose-a:no-underline prose-a:underline-offset-2 hover:prose-a:underline prose-headings:font-sans prose-p:font-serif prose-code:font-mono prose-code:text-LM-Text dark:prose-code:text-DM-Text prose-headings:font-normal prose-headings:tracking-[-0.03rem] text-LM-Text dark:text-DM-Text prose-headings:text-LM-Text dark:prose-headings:text-DM-Text"
+                class="prose prose-a:text-orange prose-a:no-underline prose-a:underline-offset-2 hover:prose-a:underline prose-headings:font-sans prose-p:font-serif prose-code:font-mono prose-code:text-LM-Text dark:prose-code:text-DM-Text max-w-none prose-headings:font-normal prose-headings:tracking-[-0.03rem] text-LM-Text dark:text-DM-Text prose-headings:text-LM-Text dark:prose-headings:text-DM-Text"
             >
                 <slot />
             </div>
