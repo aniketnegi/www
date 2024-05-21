@@ -19,12 +19,12 @@ const month = pubDate.toLocaleString("default", { month: "short" });
 const year = pubDate.getFullYear();
 ---
 
-<div class="flex flex-col items-start dark:bg-[#33333340] bg-[#DDDDDD23] dark:border-DM-Secondary border-LM-Secondary border-2 rounded-xl px-2 py-2">
+<div class="flex flex-col items-start">
     <div
         class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:space-x-8 mb-1 items-start sm:items-center"
     >
         <h3
-            class="font-sans text-xl font-medium text-LM-Text dark:text-DM-Text hover:text-orange hover:underline hover:underline-offset-2 uppercase tracking-[-.02rem] decoration-orange underline underline-offset-2 lg:no-underline"
+            class="font-sans text-xl font-medium text-LM-Text dark:text-DM-Text hover:text-orange hover:underline hover:underline-offset-2 uppercase tracking-[-.02rem]  underline underline-offset-2 lg:no-underline"
         >
             <a href={url}>{title}</a>
         </h3>
