@@ -20,7 +20,6 @@ const { title, current, breadcrumbs } = Astro.props as BaseLayoutProps;
 // fonts
 import "@fontsource-variable/manrope";
 import "@fontsource/cardo";
-
 ---
 
 <!doctype html>
@@ -31,7 +30,8 @@ import "@fontsource/cardo";
     <head>
         <Head title={title} />
         <ThemeManager />
-        <ViewTransitions />
+        <!-- Firefox does not support it as of 21-05-2024, so it flickers -->
+        <!-- <ViewTransitions /> -->
     </head>
     <body
         class="bg-LM-Background dark:bg-DM-Background transition ease-in-out text-LM-Text dark:text-DM-Text flex flex-col items-center mx-6 h-screen sm:h-auto"
