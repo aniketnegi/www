@@ -24,7 +24,8 @@ const year = pubDate.getFullYear();
         class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:space-x-8 mb-1 items-start sm:items-center"
     >
         <h3
-            class="font-sans text-xl font-medium text-LM-Text dark:text-DM-Text hover:text-orange hover:underline hover:underline-offset-2 uppercase tracking-[-.02rem]  underline underline-offset-2 lg:no-underline"
+            class="font-sans text-xl font-medium text-LM-Text dark:text-DM-Text hover:text-orange hover:underline hover:underline-offset-4 uppercase tracking-[-.02rem] underline underline-offset-4 lg:no-underline"
+            transition:name="blog-title"
         >
             <a href={url}>{title}</a>
         </h3>
@@ -57,6 +58,7 @@ const year = pubDate.getFullYear();
     </div>
     <p
         class="mt-1 mb-2 font-serif text-base text-LM-Text w-full dark:text-DM-Text"
+        transition:name=`blog-description${blogPost.slug}`
     >
         {description.toString()}
     </p>

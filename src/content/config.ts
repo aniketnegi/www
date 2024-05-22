@@ -11,6 +11,15 @@ const blogCollection = defineCollection({
     })
 })
 
+const litCollection = defineCollection({
+    type: "content", schema: z.object({
+        title: z.string(),
+        author: z.string(),
+        pubDate: z.date(),
+    })
+})
+
 export const collections = {
     'blog': blogCollection,
+    'lit': litCollection,
 };

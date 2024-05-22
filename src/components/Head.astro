@@ -2,9 +2,9 @@
 const siteData = {
     siteUrl: "https:/aniketnegi.vercel.app/", // Always put "/" at the end of the URL
     author: "aniketnegi",
-    desc: "A personal website which serves as a place for my interaction with the world. I write blogs and journals about my life and everything in it.",
+    desc: "A personal website which serves as a place for my interaction with the world. I write blogs and journals, and thoughts about life, tech, cinema, literature, and the human mind in it.",
     title: "aniket negi's website",
-    ogImage: "favicon.svg",
+    ogImage: "favicon.ico",
     keywords:
         "Personal website, landing page, developer, home, writing, literature, blogs, technology",
     // postPerPage: 3
@@ -70,6 +70,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Theme Meta Tags -->
-<link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg" />
 <meta name="robots" content="index" />
-
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="manifest" href="/site.webmanifest" />

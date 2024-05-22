@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../BaseLayout.astro";
+
+import type { Crumb } from "../../utils/types";
+
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    frontmatter: CollectionEntry<"lit">;
+}
+
+const { frontmatter } = Astro.props as Props;
+
+const slug = frontmatter.slug;
+
+const { title, author } = frontmatter.data;
+
+const pageTitle = `lit / ${title}`;
+const current = "lit";
+const breadcrumbs: Array<Crumb> = [
+    { title: "LITERATURE", href: "/lit/" },
+    { title: title, href: `/lit/prose/${slug}/` },
+];
+---
+
+<BaseLayout title={pageTitle} {current} {breadcrumbs}>
+    <div class="flex flex-col items-start sm:items-center w-full">
+        <div
+            class="flex flex-col items-start sm:items-center w-full sm:w-max max-w-4xl space-y-12"
+        >
+            <div class="flex flex-col items-start w-full space-y-2">
+                <h1
+                    class="font-sans font-normal text-4xl tracking-[-0.02rem] text-LM-Text dark:text-DM-Text uppercase w-full"
+                >
+                    {title}
+                </h1>
+                <p
+                    class="font-sans font-medium text-base tracking-[-0.01rem] text-LM-Text dark:text-DM-Text"
+                >
+                    ⏤ {author}
+                </p>
+            </div>
+            <div
+                class="prose prose-p:text-sm lg:prose-p:text-base prose-headings:font-sans prose-p:font-serif max-w-none
+            prose-headings:font-normal prose-headings:tracking-[-0.03rem]
+            text-LM-Text dark:text-DM-Text prose-headings:text-LM-Text
+            dark:prose-headings:text-DM-Text"
+            >
+                <slot />
+            </div>
+        </div>
+    </div>
+</BaseLayout>

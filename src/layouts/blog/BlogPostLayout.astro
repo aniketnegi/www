@@ -52,7 +52,10 @@ const breadcrumbs: Array<Crumb> = [
             }
 
             <div class="flex flex-col items-start space-y-6 mb-24">
-                <h1 class="font-sans text-4xl font-medium tracking-[-0.02rem]">
+                <h1
+                    class="font-sans text-4xl font-medium tracking-[-0.02rem]"
+                    transition:name="blog-title"
+                >
                     {title}
                 </h1>
                 <div class="flex flex-col space-y-6 items-start">
@@ -63,6 +66,7 @@ const breadcrumbs: Array<Crumb> = [
                     </p>
                     <p
                         class="font-serif text-base font-normal tracking-[-0.01rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+                        transition:name=`blog-description${slug}`
                     >
                         {description}
                     </p>
@@ -97,7 +101,7 @@ const breadcrumbs: Array<Crumb> = [
             </div>
 
             <div
-                class="prose prose-a:text-orange prose-a:no-underline prose-a:underline-offset-2 hover:prose-a:underline prose-headings:font-sans prose-p:font-serif prose-code:font-mono prose-code:text-LM-Text dark:prose-code:text-DM-Text max-w-none prose-headings:font-normal prose-headings:tracking-[-0.03rem] text-LM-Text dark:text-DM-Text prose-headings:text-LM-Text dark:prose-headings:text-DM-Text"
+                class="prose prose-headings:uppercase prose-a:text-orange prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-headings:font-sans prose-p:font-serif prose-code:font-mono prose-code:text-LM-Text dark:prose-code:text-DM-Text max-w-none prose-headings:font-normal prose-headings:tracking-[-0.03rem] text-LM-Text dark:text-DM-Text prose-headings:text-LM-Text dark:prose-headings:text-DM-Text"
             >
                 <slot />
             </div>

@@ -9,7 +9,7 @@ export default {
 			// Light Mode
 			"LM-White": "#e9e9e9",
 			"LM-Secondary": "#dadada",
-			"LM-Text-Secondary": "#b5b5b5",
+			"LM-Text-Secondary": "#6b6b6b",
 			"LM-Background": "#F6F6F6",
 			"LM-Nav-Unselected": "#696969",
 			"LM-Nav-Selected": "#16151B",
@@ -29,21 +29,22 @@ export default {
 		fontFamily: {
 			"sans": ["Manrope Variable", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
 			"serif": ["Newsreader Variable", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
-			"mono": ["JetBrains Mono Variable", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+			"mono": ["JetBrains Mono Variable", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+			"hi": ["Noto Serif Devanagari Variable"],
 		},
 
 		extend: {
 			spacing: {
 				// '6.5xl': '75rem',
 			},
-			// typography: ({ theme }) => ({
-			// 	gray: {
-			// 		css: {
-			// 			'--tw-prose--pre-bg': "#e9e9e9", // LM-White
-			// 			'--tw-prose-invert-pre-bg': "#070707", // DM-Black
-			// 		}
-			// 	}
-			// }),
+			typography: (theme) => ({
+				DEFALUT: {
+					css:
+					{
+					}
+
+				}
+			}),
 		},
 	},
 	darkMode: ['selector', '[data-theme="dark"]'],

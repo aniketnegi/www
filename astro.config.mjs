@@ -11,10 +11,7 @@ export default defineConfig({
   integrations: [tailwind(), icon(), tunnel(), playformCompress(), mdx({
     syntaxHighlight: 'shiki',
     shikiConfig: {
-      themes: {
-        dark: 'vitesse-dark',
-        light: 'light-plus', // site color is incompatible with any theme
-      },
+      theme: "houston",
       defaultColor: false,
 
     },

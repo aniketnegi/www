@@ -3,87 +3,156 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
-const allBlogPosts = await getCollection("blog");
 
-import lit_banner from "../imgs/lit_banner.png";
+import lit_banner from "../imgs/lit/lit-banner.png";
 
 import type { Crumb } from "../utils/types";
 
 const breadcrumbs: Array<Crumb> = [{ title: "literature", href: "/lit/" }];
+
+const myProseEntries = await getCollection("lit", ({ id, data }) => {
+    return id.startsWith("prose/") && data.author === "Aniket Negi";
+});
+const myPoemEntries = await getCollection("lit", ({ id, data }) => {
+    return id.startsWith("poem/") && data.author === "Aniket Negi";
+});
+const foundProseEntries = await getCollection("lit", ({ id, data }) => {
+    return id.startsWith("prose/") && data.author !== "Aniket Negi";
+});
+const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
+    return id.startsWith("poem/") && data.author !== "Aniket Negi";
+});
 ---
 
-<!-- Turns out rendering poetry is not a solved problem on the web yet. --><!-- But i can cheese it by using pre --><!-- https://stackoverflow.com/questions/14734564/how-to-semantically-tag-poem-text --><!-- https://duckduckgo.com/?q=rendering+poetry+with+spaces+html&t=ffab&atb=v409-1&ia=web --><!-- https://www.poetrypoets.com/how-to-format-poetry/ --><!-- https://electricbookworks.github.io/electric-book/docs/editing/poetry.html --><!-- https://www.w3docs.com/snippets/html/how-to-render-an-html-string-preserving-spaces-and-line-breaks.html --><!-- https://www.vianegativa.us/2010/06/how-to-format-poetry-on-the-web-an-incomplete-guide/#images --><!-- https://www.w3.org/html/wg/wiki/PoeticSemantics -->
 <BaseLayout title="ankt / lit" {breadcrumbs} current="lit">
-    <div>
-        <div class="w-full flex flex-col items-center justify-start mb-6">
+    <div class="flex flex-col items-center w-full space-y-16">
+        <div class="flex flex-col space-y-10 w-full items-center">
             <Image
                 src={lit_banner}
-                alt="abstract image of an alien thinking on Mars"
+                alt="Dr. Manhattan sitting on Mars in deep thought"
+                class="w-full sm:w-7/12 rounded-md shadow-xl"
             />
-            <div class="w-7/12 flex flex-row space-x-8 mt-8">
-                <p class="w-1/2">
-                    This is a collection of literature I think is worth
-                    revisiting. Lorem ipsum dolor sit amet consectetur
-                    adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.
-                    Pellentesque sit amet sapien fringilla, mattis ligula
-                    consectetur, ultrices mauris. Maecenas vitae mattis tellus.
-                    Nullam quis imperdiet augue. Vestibulum auctor ornare leo,
-                    non suscipit magna interdum eu. Curabitur pellentesque nibh
-                    nibh, at maximus ante fermentum sit amet.
+            <section class="w-full sm:w-7/12 font-serif text-base">
+                <p class="w-full">
+                    Literature has the power to transform, to challenge, and to
+                    comfort. It's a way to connect with others, to understand
+                    ourselves better, and to explore the depths of our
+                    existence. This page is dedicated to celebrating the power
+                    of words to move us. Here, you will find an array of my
+                    original poetry and prose, as well as carefully selected
+                    pieces that have left a lasting impression on me.
                 </p>
-                <p class="w-1/2">
-                    This is a collection of literature I think is worth
-                    revisiting. Lorem ipsum dolor sit amet consectetur
-                    adipiscing elit Ut et massa mi. Aliquam in hendrerit urna.
-                    Pellentesque sit amet sapien fringilla, mattis ligula
-                    consectetur, ultrices mauris. Maecenas vitae mattis tellus.
-                    Nullam quis imperdiet augue. Vestibulum auctor ornare leo,
-                    non suscipit magna interdum eu. Curabitur pellentesque nibh
-                    nibh, at maximus ante fermentum sit amet.
+                <p class="w-full">
+                    Let's delve into the deep shit and find beauty in the
+                    written word.
                 </p>
-            </div>
-        </div>
-        <div class="mt-6">
-            <section>
-                <h2>mine</h2>
-                <h3>story</h3>
-                <ul>
-                    <li>
-                        <a href="#">Catharsis ⏤ ankt</a>
-                    </li>
-                </ul>
-                <h3>verse</h3>
             </section>
-            <section>
+        </div>
+        <div
+            class:list={[
+                "flex flex-col items-start w-full sm:w-7/12",
+                "prose prose-headings:text-LM-Text prose-h2:uppercase prose-h2:mb-0 dark:prose-headings:text-DM-Text prose-li:text-LM-Text-Secondary dark:prose-li:text-DM-Text-Secondary hover:prose-a:text-orange prose-a:text-LM-Text dark:prose-a:text-DM-Text prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-headings:font-sans prose-a:font-serif",
+            ]}
+        >
+            <section class="flex flex-col space-y-2">
+                <h2>mine</h2>
+                <div>
+                    <h3>prose</h3>
+                    <ul>
+                        {
+                            myProseEntries.length !== 0 ? (
+                                myProseEntries.map((entry) => (
+                                    <li>
+                                        <a href={`${entry.slug}/`}>
+                                            {entry.data.title}
+                                        </a>
+                                    </li>
+                                ))
+                            ) : (
+                                <li>
+                                    <span>Nothing here yet!</span>
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
+                <div>
+                    <h3>poetry</h3>
+                    <ul>
+                        {
+                            myPoemEntries.length !== 0 ? (
+                                myPoemEntries.map((entry) => (
+                                    <li>
+                                        <a href={`${entry.slug}/`}>
+                                            {entry.data.title}
+                                        </a>
+                                    </li>
+                                ))
+                            ) : (
+                                <li>
+                                    <span>Nothing here yet!</span>
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
+            </section>
+            <section class="flex flex-col">
                 <h2>found</h2>
-                <h3>story</h3>
-                <h3>verse</h3>
-                <ul>
-                    <li>
-                        <a href="#">If ⏤ Rudyard Kipling</a>
-                    </li>
-                    <li>
-                        <a href="#">The Road Not Taken ⏤ Robert Frost</a>
-                    </li>
-                    <li>
-                        <a href="#">The Sound of Silence ⏤ Aamna Abdin</a>
-                    </li>
-                    <li>
-                        <a href="#">Invictus ⏤ William Ernst Henley</a>
-                    </li>
-                </ul>
+                <div>
+                    <h3>prose</h3>
+                    <ul>
+                        {
+                            foundProseEntries.length !== 0 ? (
+                                foundProseEntries.map((entry) => (
+                                    <li>
+                                        <a href={`${entry.slug}/`}>
+                                            {entry.data.title} ⏤{" "}
+                                            {entry.data.author}
+                                        </a>
+                                    </li>
+                                ))
+                            ) : (
+                                <li>
+                                    <span>Nothing here yet!</span>
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
+                <div>
+                    <h3>poetry</h3>
+                    <ul>
+                        {
+                            foundPoemEntries.length !== 0 ? (
+                                foundPoemEntries.map((entry) => (
+                                    <li>
+                                        <a href={`${entry.slug}/`}>
+                                            {entry.data.title} ⏤{" "}
+                                            {entry.data.author}
+                                        </a>
+                                    </li>
+                                ))
+                            ) : (
+                                <li>
+                                    <span>Nothing here yet!</span>
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
             </section>
         </div>
     </div>
     <div></div>
-</BaseLayout>
 
-<style>
-    p {
-        font-family: "Cardo";
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 135.292%; /* 1.35294rem */
-    }
-</style>
+    <style>
+        p {
+            font-family: "Cardo";
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 135.292%; /* 1.35294rem */
+        }
+    </style>
+</BaseLayout>
