@@ -38,6 +38,10 @@ const blogPosts = await getCollection("blog");
     </div>
     <hr class="border-LM-Secondary dark:border-DM-Secondary border-[1px]" />
     <div class="flex flex-col space-y-16 items-start mt-10">
-        {blogPosts.reverse().map((blogPost) => <BlogPostCard {blogPost} />)}
+        {
+            blogPosts
+                .sort((a, b) => b.data.postOrder - a.data.postOrder) // sort such that newer posts on top
+                .map((blogPost) => <BlogPostCard {blogPost} />)
+        }
     </div>
 </BaseLayout>

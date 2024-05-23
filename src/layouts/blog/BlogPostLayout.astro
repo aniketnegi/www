@@ -80,7 +80,7 @@ const breadcrumbs: Array<Crumb> = [
                                     <li>
                                         <a
                                             class="hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected"
-                                            href="#"
+                                            href={`/blog/tags/${tag}/`}
                                         >
                                             {tag}
                                         </a>
@@ -101,7 +101,7 @@ const breadcrumbs: Array<Crumb> = [
             </div>
 
             <div
-                class="prose prose-headings:uppercase prose-a:text-orange prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-headings:font-sans prose-p:font-serif prose-code:font-mono prose-code:text-LM-Text dark:prose-code:text-DM-Text max-w-none prose-headings:font-normal prose-headings:tracking-[-0.03rem] text-LM-Text dark:text-DM-Text prose-headings:text-LM-Text dark:prose-headings:text-DM-Text"
+                class="prose prose-headings:uppercase prose-a:text-orange prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-headings:font-sans prose-p:font-serif prose-code:font-mono max-w-none prose-headings:font-normal prose-headings:tracking-[-0.03rem] text-LM-Text dark:text-DM-Text prose-headings:text-LM-Text dark:prose-headings:text-DM-Text"
             >
                 <slot />
             </div>

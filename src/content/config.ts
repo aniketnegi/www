@@ -8,6 +8,7 @@ const blogCollection = defineCollection({
         description: z.string(),
         banner: z.object({ url: image(), alt: z.string() }).optional(),
         tags: z.array(z.string()),
+        postOrder: z.number(),
     })
 })
 
