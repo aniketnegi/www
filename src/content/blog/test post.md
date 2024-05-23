@@ -44,6 +44,7 @@ Here is a nested list
 
 `This is some random text in code fences`
 
+ref: <https://github.com/HiDeoo/starlight-obsidian>
 > [!NOTE] This is an attempt at a callout like in Obsidian
 
 ![pixel art of a tower in the forest night scene](../../imgs/blog/test-img.png)
