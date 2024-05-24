@@ -20,7 +20,16 @@ const litCollection = defineCollection({
     })
 })
 
+const gardenCollection = defineCollection({
+    type: "content", schema: ({ image }) => z.object({
+        title: z.string(),
+        pubDate: z.date(),
+        // banner: z.object({ url: image(), alt: z.string() }).optional(),
+    })
+})
+
 export const collections = {
     'blog': blogCollection,
     'lit': litCollection,
+    'garden': gardenCollection,
 };
