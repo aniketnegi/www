@@ -36,8 +36,8 @@ export const navLinks: navLink[] = [
     name: "bm",
     href: "/bm/",
   },
-  {
-    name: "pgp",
-    href: "/pgp/",
-  },
+  // {
+  //   name: "pgp",
+  //   href: "/pgp/",
+  // },
 ];
