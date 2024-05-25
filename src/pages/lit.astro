@@ -1,10 +1,10 @@
 ---
-import { Image } from "astro:assets";
+// import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
 
-import lit_banner from "../imgs/lit/lit-banner.png";
+// import lit_banner from "../imgs/lit/lit-banner.png";
 
 import type { Crumb } from "../utils/types";
 
@@ -39,15 +39,15 @@ const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
                 This page is dedicated to celebrating the power of words to move
                 us. Here, you will find an array of my original poetry and
                 prose, as well as carefully selected pieces that have left a
-                lasting impression on me.
-            </p>
-            <p class="w-full">
-                Let's delve into the deep shit and find beauty in the written
-                word.
+                lasting impression on me. Let's delve into the deep shit and
+                find beauty in the written word.
             </p>
         </section>
     </div>
-    <hr class="border-LM-Secondary dark:border-DM-Secondary border-[1px]" />
+
+    <hr
+        class="border-LM-Secondary dark:border-DM-Secondary transition border-[1px]"
+    />
 
     <!-- <div class="flex w-full justify-center my-8">
         <Image
@@ -60,12 +60,12 @@ const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
         class:list={[
             "flex flex-col items-start w-full sm:w-1/2",
             "prose",
-            "prose-headings:text-LM-Text prose-h2:uppercase prose-headings:mb-0 dark:prose-headings:text-DM-Text prose-headings:font-sans prose-h2:font-semibold prose-h3:font-medium prose-headings:tracking-[-0.03rem]",
+            "prose-headings:text-LM-Text prose-h2:uppercase prose-headings:mb-0 dark:prose-headings:text-DM-Text prose-headings:font-sans prose-h2:font-medium prose-h3:font-medium prose-headings:tracking-[-0.03rem]",
             "prose-li:text-LM-Text-Secondary dark:prose-li:text-DM-Text-Secondary",
             "hover:prose-a:text-orange prose-a:text-LM-Text dark:prose-a:text-DM-Text prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-a:font-serif",
         ]}
     >
-        <section class="flex flex-col space-y-2">
+        <section class="flex flex-col space-y-1">
             <h2>mine</h2>
             <div>
                 <h3>prose</h3>
@@ -153,4 +153,3 @@ const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
         </section>
     </div>
 </BaseLayout>
-<div></div>

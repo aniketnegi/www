@@ -1,5 +1,55 @@
 ---
-import UnderConstructionLayout from "../layouts/UnderConstructionLayout.astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { Crumb, currentPage } from "../utils/types";
+import JournalEntry from "../components/journal/JournalEntry.astro";
+
+// import UnderConstructionLayout from "../layouts/UnderConstructionLayout.astro";
+
+let journalEntries = await getCollection("journal");
+
+journalEntries = journalEntries.sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+
+const title = "ankt / journal";
+const current: currentPage = "journal";
+const breadcrumbs: Crumb[] = [
+    {
+        title: "JOURNAL",
+        href: "/journal/",
+    },
+];
 ---
 
-<UnderConstructionLayout />
+<BaseLayout {title} {current} {breadcrumbs}>
+    <div class="flex flex-col space-y-4 mb-10">
+        <h1
+            class="text-LM-Text dark:text-DM-Text font-sans text-2xl uppercase tracking-[-0.015rem] font-medium"
+        >
+            JOURNAL
+        </h1>
+
+        <section
+            class="w-full sm:w-7/12 font-serif text-base text-LM-Text dark:text-DM-Text"
+        >
+            <p class="w-full">
+                <span class="italic"
+                    >What's in the box? What's in the fucking box?</span
+                >
+                <a
+                    href="https://youtu.be/1giVzxyoclE?si=WFWEWD5jR7qp_ew0&t=134"
+                    class="text-xs hover:text-orange underline underline-offset-2 decoration-LM-Text-Secondary dark:decoration-DM-Text-Secondary hover:decoration-orange"
+                    >(huh)</a
+                >.
+            </p>
+            <p>The box is my brain. My brain is .</p>
+        </section>
+    </div>
+    <hr
+        class="w-grow border-LM-Secondary dark:border-DM-Secondary transition border-[1px]"
+    />
+    <div class="flex flex-col space-y-16 items-start mt-10">
+        {journalEntries.map((entry) => <JournalEntry {entry} />)}
+    </div>
+</BaseLayout>

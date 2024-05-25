@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(utc);
+
+interface Props {
+    entry: CollectionEntry<"journal">;
+}
+
+const { entry } = Astro.props as Props;
+
+const pubDate = entry.data.pubDate;
+
+const dotw = pubDate.toLocaleDateString("default", { weekday: "short" }); // Day of The Week
+const date = `${pubDate.getDate() < 10 ? "0" : ""}${pubDate.getDate().toString().slice(-2)}`;
+const month = pubDate.toLocaleString("default", { month: "long" });
+const year = pubDate.getFullYear();
+
+const { Content, remarkPluginFrontmatter } = await entry.render();
+const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
+    .utc()
+    .format("HH:mm:ss DD MMMM YYYY UTC");
+---
+
+<div
+    class:list={[
+        "prose dark:prose-invert",
+        "prose-headings:uppercase prose-headings:font-sans prose-headings:font-semibold prose-headings:tracking-[-0.03rem]",
+        "prose-a:text-LM-Text prose-a:dark:text-DM-Text",
+        "prose-p:font-serif",
+        "prose-table:font-serif",
+        "prose-ul:font-serif prose-ol:font-serif",
+        "prose-blockquote:not-italic",
+        "max-w-none",
+    ]}
+>
+    <h2>
+        {`${dotw}, ${date} ${month} ${year}`}
+        <span class="text-LM-Text-Secondary italic tracking-wide dark:text-DM-Text-Secondary text-lg ml-2" >@ {entry.data.pubTime}</span>
+    </h2>
+    <Content />
+</div>

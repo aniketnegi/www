@@ -49,6 +49,8 @@ ref: <https://github.com/HiDeoo/starlight-obsidian>
 
 ![pixel art of a tower in the forest night scene](../../imgs/blog/test-img.png)
 
+[[welcome to the website]]
+
 ## Table
 
 | Serial | Name | Sigma Score |
@@ -72,3 +74,7 @@ LaTeX?!!
 1. LaTeX does not work (bc i don't have the remark plugin yet)
 2. table alignment issues
 3. Obsidian Like Callouts don't work
+    - look weird
+4. internal linking like [[blog post]]
+    - requires mdx
+    - slug is from root so broken

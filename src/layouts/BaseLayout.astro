@@ -7,11 +7,11 @@ import { ViewTransitions } from "astro:transitions";
 
 import ThemeManager from "../components/ThemeManager.astro";
 
-import type { Crumb } from "../utils/types";
+import type { Crumb, currentPage } from "../utils/types";
 
 interface BaseLayoutProps {
     title?: string;
-    current: string;
+    current: currentPage;
     breadcrumbs: Crumb[];
 }
 

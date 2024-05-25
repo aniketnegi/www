@@ -23,7 +23,16 @@ const litCollection = defineCollection({
   }),
 });
 
+const journalCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    pubDate: z.date(),
+    pubTime: z.string(),
+  }),
+});
+
 export const collections = {
   blog: blogCollection,
   lit: litCollection,
+  journal: journalCollection,
 };

@@ -19,12 +19,12 @@ const month = pubDate.toLocaleString("default", { month: "short" });
 const year = pubDate.getFullYear();
 ---
 
-<div class="flex flex-col items-start">
+<div class="flex flex-col items-start space-y-3">
     <div
-        class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:space-x-8 mb-1 items-start sm:items-center"
+        class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:space-x-8 items-start sm:items-center"
     >
         <h3
-            class="font-sans text-xl font-medium text-LM-Text dark:text-DM-Text hover:text-orange hover:underline hover:underline-offset-4 uppercase tracking-[-.02rem] underline underline-offset-4 lg:no-underline"
+            class="font-sans text-xl font-medium transition text-LM-Text dark:text-DM-Text hover:text-orange uppercase tracking-[-.02rem] underline underline-offset-4 decoration-LM-Text-Secondary dark:decoration-DM-Text-Secondary hover:decoration-orange"
         >
             <a href={url}>{title}</a>
         </h3>
@@ -55,12 +55,10 @@ const year = pubDate.getFullYear();
             }
         </ul>
     </div>
-    <p
-        class="mt-1 mb-2 font-serif text-base text-LM-Text w-full dark:text-DM-Text"
-    >
+    <p class="font-serif text-base text-LM-Text w-full dark:text-DM-Text">
         {description.toString()}
     </p>
-    <div class="mt-2 flex flex-row items-center">
+    <div class="flex flex-row items-center">
         <!-- TODO@ankt: Author Content Collection -->
         <!-- <a
             class="font-sans text-sm tracking-[-0.02rem] font-medium text-LM-Nav-Unselected dark:text-DM-Nav-Unselected hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected"
