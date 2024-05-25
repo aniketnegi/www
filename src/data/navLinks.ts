@@ -1,6 +1,6 @@
 interface navLink {
-  name: string,
-  href: string,
+  name: string;
+  href: string;
 }
 
 export const navLinks: navLink[] = [
@@ -24,18 +24,18 @@ export const navLinks: navLink[] = [
     name: "journal",
     href: "/journal/",
   },
-  {
-    name: "uses",
-    href: "/uses/",
-  },
+  // {
+  //   name: "uses",
+  //   href: "/uses/",
+  // },
   // {
   //     name: "fun",
   //     href: "/fun/",
   // },
-  {
-    name: "bm",
-    href: "/bm/",
-  },
+  // {
+  //   name: "bm",
+  //   href: "/bm/",
+  // },
   {
     name: "pgp",
     href: "/pgp/",
