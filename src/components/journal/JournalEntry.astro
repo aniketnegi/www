@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -27,18 +28,31 @@ const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
 <div
     class:list={[
         "prose dark:prose-invert",
-        "prose-headings:uppercase prose-headings:font-sans prose-headings:font-semibold prose-headings:tracking-[-0.03rem]",
+        "prose-headings:uppercase prose-headings:font-sans prose-headings:font-medium prose-headings:tracking-[-0.01rem]",
         "prose-a:text-LM-Text prose-a:dark:text-DM-Text",
         "prose-p:font-serif",
         "prose-table:font-serif",
         "prose-ul:font-serif prose-ol:font-serif",
         "prose-blockquote:not-italic",
         "max-w-none",
+        "w-full",
+        "flex flex-col space-y-4",
     ]}
 >
-    <h2>
-        {`${dotw}, ${date} ${month} ${year}`}
-        <span class="text-LM-Text-Secondary italic tracking-wide dark:text-DM-Text-Secondary text-lg ml-2" >@ {entry.data.pubTime}</span>
-    </h2>
-    <Content />
+    <div class="flex flex-row space-x-2 items-center">
+        <h2 class="m-0 text-orange">
+            {entry.data.title}
+        </h2>
+        <Icon name="dot" size={18} />
+        <span class="m-0 font-sans ">
+            {`${dotw}, ${date} ${month} ${year}`}
+        </span>
+    </div>
+    <div>
+        <Content />
+    </div>
+
+    <hr
+        class="border-LM-Secondary dark:border-DM-Secondary transition border-[1px] w-full"
+    />
 </div>

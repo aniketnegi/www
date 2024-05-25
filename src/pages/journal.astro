@@ -34,6 +34,8 @@ const breadcrumbs: Crumb[] = [
             class="w-full sm:w-7/12 font-serif text-base text-LM-Text dark:text-DM-Text"
         >
             <p class="w-full">
+                A collection of my daily thoughts, experiences, and reflections.
+                <br />
                 <span class="italic"
                     >What's in the box? What's in the fucking box?</span
                 >
@@ -49,7 +51,13 @@ const breadcrumbs: Crumb[] = [
     <hr
         class="w-grow border-LM-Secondary dark:border-DM-Secondary transition border-[1px]"
     />
-    <div class="flex flex-col space-y-16 items-start mt-10">
-        {journalEntries.map((entry) => <JournalEntry {entry} />)}
+    <div class="flex flex-col space-y-12 items-start mt-10 w-full">
+        {
+            journalEntries.map((entry) => (
+                <>
+                    <JournalEntry {entry} />
+                </>
+            ))
+        }
     </div>
 </BaseLayout>

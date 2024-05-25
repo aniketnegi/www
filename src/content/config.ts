@@ -26,8 +26,8 @@ const litCollection = defineCollection({
 const journalCollection = defineCollection({
   type: "content",
   schema: z.object({
+    title: z.string(),
     pubDate: z.date(),
-    pubTime: z.string(),
   }),
 });
 

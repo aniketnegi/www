@@ -1,8 +1,13 @@
 ---
-pubDate: 2024-05-26 
-pubTime: "01:16"
+title: 
+pubDate: 2024-05-
 ---
 
-#### log
+#### AM
+
 
 - Made journal page. looks okay for now. future will tell whether my design is good enough to scale
+
+#### PM
+
+- 
