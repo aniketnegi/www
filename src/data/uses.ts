@@ -9,7 +9,7 @@ interface usesCategory {
     items?: Item[],
 }
 
-export const usesData = [
+export const usesData: usesCategory[] = [
     {
         category: "everyday",
         items: [

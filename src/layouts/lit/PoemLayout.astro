@@ -13,12 +13,7 @@ const { frontmatter } = Astro.props as Props;
 
 const slug = frontmatter.slug;
 
-const { title, author, pubDate } = frontmatter.data;
-
-const dotw = pubDate.toLocaleDateString("default", { weekday: "short" }); // Day of The Week
-const date = `${pubDate.getDate() < 10 ? "0" : ""}${pubDate.getDate().toString().slice(-2)}`;
-const month = pubDate.toLocaleString("default", { month: "short" });
-const year = pubDate.getFullYear();
+const { title, author } = frontmatter.data;
 
 const pageTitle = `lit / ${title}`;
 const current = "lit";
@@ -31,7 +26,9 @@ const breadcrumbs: Array<Crumb> = [
 <!-- https://docs.astro.build/en/guides/markdown-content/ --><!-- https://ssavitzky.github.io/Blog/2018/06/19/html-secrets/ --><!-- https://electricbookworks.github.io/electric-book/docs/editing/poetry.html#:~:text=Usually%2C%20poetry%20in%20HTML%20is,verse%7D%20. --><!-- https://www.vianegativa.us/2010/06/how-to-format-poetry-on-the-web-an-incomplete-guide/ --><!-- https://jamesg.blog/2024/04/04/poetry-to-html/ --><!-- https://medium.com/parenthetical-note/why-are-the-poetry-format-options-on-the-web-so-shitty-390d0c1b25b3 --><!-- https://uutpoetry.tumblr.com/post/85090187055/a-guide-to-formatting-poems-on-the-internet --><!-- https://www.w3.org/html/wg/wiki/PoeticSemantics --><!-- https://webmasters.stackexchange.com/questions/52944/how-to-mark-up-a-poem-in-html-for-seo -->
 <BaseLayout title={pageTitle} {current} {breadcrumbs}>
     <div class="flex flex-col items-start sm:items-center w-full">
-        <div class="flex flex-col items-start sm:items-center w-full sm:w-max max-w-4xl space-y-12">
+        <div
+            class="flex flex-col items-start sm:items-center w-full sm:w-max max-w-4xl space-y-12"
+        >
             <div class="flex flex-col items-start w-full space-y-2">
                 <h1
                     class="font-sans font-normal text-4xl tracking-[-0.02rem] text-LM-Text dark:text-DM-Text uppercase w-full"

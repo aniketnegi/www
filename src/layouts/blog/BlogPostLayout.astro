@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../BaseLayout.astro";
 
-import TableOfContents from "../../components/TableOfContents.astro";
+// import TableOfContents from "../../components/TableOfContents.astro";
 
 import type { Crumb } from "../../utils/types";
 import { Image } from "astro:assets";
@@ -21,7 +21,7 @@ interface Props {
     headings: MarkdownHeading[];
 }
 
-const { frontmatter, slug, headings } = Astro.props as Props;
+const { frontmatter, slug } = Astro.props as Props;
 
 const { title, tags, description, author, banner, pubDate } = frontmatter.data;
 

@@ -1,7 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-import WorkPostCard from "../components/work/WorkPostCard.astro";
-import { projects } from "../data/projects";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import type { Crumb, currentPage } from "../utils/types";
 import { getCollection } from "astro:content";
@@ -13,7 +10,6 @@ const current: currentPage = "work";
 const breadcrumbs: Crumb[] = [{ title: "WORK", href: "/work/" }];
 ---
 
-<!-- <UnderConstructionLayout /> -->
 <BaseLayout {title} {breadcrumbs} {current}>
     <div class="flex flex-col space-y-4 mb-10">
         <h1

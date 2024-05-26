@@ -8,7 +8,6 @@ import mdx from "@astrojs/mdx";
 import remarkToc from 'remark-toc';
 import remarkObsidian from "remark-obsidian";
 import rehypeExternalLinks from 'rehype-external-links';
-import { remarkModifiedTime } from './remark-modified-time.mjs';
 
 
 // https://astro.build/config
@@ -20,7 +19,7 @@ export default defineConfig({
       defaultColor: false,
 
     },
-    remarkPlugins: [remarkToc, remarkObsidian, remarkModifiedTime],
+    remarkPlugins: [remarkToc, remarkObsidian],
     rehypePlugins: [[
       rehypeExternalLinks,
       // {
