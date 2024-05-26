@@ -31,8 +31,19 @@ const journalCollection = defineCollection({
   }),
 });
 
+const workCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    tags: z.array(z.string()),
+    links: z.array(z.object({ name: z.string(), url: z.string().url() })),
+  }),
+});
+
 export const collections = {
   blog: blogCollection,
   lit: litCollection,
   journal: journalCollection,
+  work: workCollection,
 };

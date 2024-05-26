@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import type { Crumb } from "../../../utils/types";
+
+export async function getStaticPaths() {
+    const allPosts = await getCollection("work");
+
+    const uniqueTags = [
+        ...new Set(allPosts.map((post) => post.data.tags).flat()),
+    ];
+
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) =>
+            post.data.tags.includes(tag),
+        );
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        };
+    });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+const title = "ankt / work / tags";
+const current = "work";
+const breadcrumbs: Array<Crumb> = [
+    { title: "WORK", href: "/work/" },
+    { title: `TAG`, href: `/work/tags/` },
+];
+---
+
+<BaseLayout {title} {current} {breadcrumbs}>
+    <div class="flex flex-col space-y-12">
+        <h1
+            class="text-LM-Text dark:text-DM-Text font-sans text-2xl uppercase tracking-[-0.015rem] font-medium"
+        >
+            Projects tagged with <em>{tag}</em>
+        </h1>
+        <ul>
+            {
+                posts.map((post) => (
+                    <li class="">
+                        <>
+                            <a
+                                href={`/work/${post.slug}/`}
+                                class="uppercase text-LM-Nav-Unselected dark:text-DM-Nav-Unselected hover:text-orange font-semibold text-lg"
+                            >
+                                {post.data.title}{" "}
+                            </a>
+                            <span class="font-serif">
+                                &nbsp;⏤&nbsp; {post.data.description}
+                            </span>
+                        </>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</BaseLayout>

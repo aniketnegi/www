@@ -1,5 +1,66 @@
 ---
-import UnderConstructionLayout from "../layouts/UnderConstructionLayout.astro";
+// import UnderConstructionLayout from "../layouts/UnderConstructionLayout.astro";
+import { usesData } from "../data/uses";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { Crumb, currentPage } from "../utils/types";
+
+const title = "ankt / uses";
+const current: currentPage = "uses";
+const breadcrumbs: Crumb[] = [{ title: "USES", href: "/uses/" }];
 ---
 
-<UnderConstructionLayout />
+<!-- <UnderConstructionLayout /> -->
+<BaseLayout {title} {current} {breadcrumbs}>
+    <div class="flex flex-col space-y-4 mb-10">
+        <h1
+            class="text-LM-Text dark:text-DM-Text font-sans text-2xl uppercase tracking-[-0.015rem] font-medium"
+        >
+            USES
+        </h1>
+
+        <section
+            class="w-full sm:w-7/12 font-serif text-base text-LM-Text dark:text-DM-Text"
+        >
+            <p class="w-full">
+                A list of software and hardware that I use on a regular basis.
+            </p>
+        </section>
+    </div>
+    <hr
+        class="w-grow border-LM-Secondary dark:border-DM-Secondary transition border-[1px]"
+    />
+    <div
+        class:list={[
+            "flex flex-col space-y-6 items-start mt-10 w-full",
+            "prose dark:prose-invert",
+            "prose-headings:uppercase prose-headings:font-sans prose-headings:font-medium prose-headings:tracking-[-0.01rem]",
+            "prose-a:text-LM-Text prose-a:dark:text-DM-Text",
+            "prose-p:font-serif",
+            "prose-table:font-serif",
+            "prose-ul:font-serif prose-ol:font-serif",
+            "prose-blockquote:not-italic",
+            "max-w-none",
+            "w-full",
+        ]}
+    >
+        {
+            usesData.map((data) => (
+                <section class="flex flex-col space-y-2">
+                    <h2>{data.category}</h2>
+                    {data.description && <p>{data.description}</p>}
+                    <ul>
+                        {data.items &&
+                            data.items.map((item) => (
+                                <li>
+                                    <span>
+                                        <span>{item.object}</span> ⏤{" "}
+                                        {item.value}
+                                    </span>
+                                </li>
+                            ))}
+                    </ul>
+                </section>
+            ))
+        }
+    </div>
+</BaseLayout>

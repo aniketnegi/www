@@ -1,10 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-
-dayjs.extend(utc);
 
 interface Props {
     entry: CollectionEntry<"journal">;
@@ -19,10 +15,7 @@ const date = `${pubDate.getDate() < 10 ? "0" : ""}${pubDate.getDate().toString()
 const month = pubDate.toLocaleString("default", { month: "long" });
 const year = pubDate.getFullYear();
 
-const { Content, remarkPluginFrontmatter } = await entry.render();
-const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
-    .utc()
-    .format("HH:mm:ss DD MMMM YYYY UTC");
+const { Content } = await entry.render();
 ---
 
 <div
@@ -44,7 +37,7 @@ const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
             {entry.data.title}
         </h2>
         <Icon name="dot" size={18} />
-        <span class="m-0 font-sans ">
+        <span class="m-0 font-sans">
             {`${dotw}, ${date} ${month} ${year}`}
         </span>
     </div>

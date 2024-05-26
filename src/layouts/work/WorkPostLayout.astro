@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../BaseLayout.astro";
 
-import TableOfContents from "../../components/TableOfContents.astro";
-
 import type { Crumb } from "../../utils/types";
 import { Image } from "astro:assets";
 
@@ -13,64 +11,35 @@ import "../../styles/styles.css";
 import { Icon } from "astro-icon/components";
 
 import type { CollectionEntry } from "astro:content";
-import type { MarkdownHeading } from "astro";
 
 interface Props {
-    frontmatter: CollectionEntry<"blog">;
+    frontmatter: CollectionEntry<"work">;
     slug: string;
-    headings: MarkdownHeading[];
 }
 
-const { frontmatter, slug, headings } = Astro.props as Props;
+const { frontmatter, slug } = Astro.props as Props;
 
-const { title, tags, description, author, banner, pubDate } = frontmatter.data;
+const { title, tags, description, links } = frontmatter.data;
 
-const dotw = pubDate.toLocaleDateString("default", { weekday: "short" }); // Day of The Week
-const date = `${pubDate.getDate() < 10 ? "0" : ""}${pubDate.getDate().toString().slice(-2)}`;
-const month = pubDate.toLocaleString("default", { month: "short" });
-const year = pubDate.getFullYear();
-
-const pageTitle = `blog / ${title}`;
-const current = "blog";
+const pageTitle = `work / ${title}`;
+const current = "work";
 const breadcrumbs: Array<Crumb> = [
-    { title: "BLOG", href: "/blog/" },
-    { title: title, href: `/blog/${slug}/` },
+    { title: "WORK", href: "/work/" },
+    { title: title, href: `/work/${slug}/` },
 ];
 ---
 
 <!-- https://docs.astro.build/en/guides/markdown-content/ -->
 <BaseLayout title={pageTitle} {current} {breadcrumbs}>
-    <!-- TODO@ankt -->
     <div class="flex flex-row justify-center space-x-8">
-        <!-- TODO@ankt: for now hidden -->
-        <!-- <div class="hidden lg:block"><TableOfContents {headings} /></div> -->
         <div class="flex flex-col w-full max-w-4xl">
-            {
-                banner && (
-                    <Image
-                        class="w-full mb-10"
-                        src={banner.url}
-                        alt={banner.alt}
-                    />
-                )
-            }
-
-            <div class="flex flex-col items-start space-y-6 mb-24">
-                <h1 class="font-sans text-4xl font-medium tracking-[-0.02rem]">
+            <div class="flex flex-col items-start space-y-4 mb-24">
+                <h1
+                    class="font-sans text-4xl font-medium normal-case tracking-[-0.02rem]"
+                >
                     {title}
                 </h1>
                 <div class="flex flex-col space-y-6 items-start">
-                    <p
-                        class="font-sans text-base font-normal tracking-[-0.01rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
-                    >
-                        {`${dotw}, ${date} ${month} ${year}`}
-                    </p>
-                    <p
-                        class="font-serif text-base font-normal tracking-[-0.01rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
-                    >
-                        {description}
-                    </p>
-
                     <ul
                         class="flex flex-row items-center flex-wrap space-x-0.5 font-sans text-base pb-1 tracking[-0.0175rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
                     >
@@ -79,14 +48,46 @@ const breadcrumbs: Array<Crumb> = [
                                 <>
                                     <li>
                                         <a
-                                            class="hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected"
-                                            href={`/blog/tags/${tag}/`}
+                                            class="hover:text-orange underline underline-offset-4"
+                                            href={`/work/tags/${tag}/`}
                                         >
                                             {tag}
                                         </a>
                                     </li>
 
                                     {idx < tags.length - 1 && (
+                                        <Icon
+                                            name="dot"
+                                            size={16}
+                                            class="text-LM-Nav-Selected dark:text-DM-Nav-Selected"
+                                        />
+                                    )}
+                                </>
+                            ))
+                        }
+                    </ul>
+                    <p
+                        class="font-serif text-base font-normal tracking-[-0.01rem] text-LM-Text dark:text-DM-Text"
+                    >
+                        {description}
+                    </p>
+
+                    <ul
+                        class="flex flex-row items-center flex-wrap space-x-0.5 font-sans font-medium text-base pb-1 tracking[-0.0175rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+                    >
+                        {
+                            links.map((link, idx) => (
+                                <>
+                                    <li>
+                                        <a
+                                            class="hover:text-orange underline underline-offset-4"
+                                            href={link.url}
+                                        >
+                                            {link.name}
+                                        </a>
+                                    </li>
+
+                                    {idx < links.length - 1 && (
                                         <Icon
                                             name="dot"
                                             size={16}

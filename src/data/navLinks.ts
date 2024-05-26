@@ -24,10 +24,10 @@ export const navLinks: navLink[] = [
     name: "journal",
     href: "/journal/",
   },
-  // {
-  //   name: "uses",
-  //   href: "/uses/",
-  // },
+  {
+    name: "uses",
+    href: "/uses/",
+  },
   // {
   //     name: "fun",
   //     href: "/fun/",
