@@ -28,6 +28,6 @@ export default defineConfig({
     ],],
     gfm: false,
   }),],
-  site: "https://aniketnegi.vercel.app/",
+  site: "https://www.aniketnegi.com/",
   trailingSlash: 'always'
 });
