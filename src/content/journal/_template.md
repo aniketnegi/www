@@ -3,11 +3,14 @@ title:
 pubDate: 2024-05-
 ---
 
-#### AM
+#### TODO
 
+- 
 
-- Made journal page. looks okay for now. future will tell whether my design is good enough to scale
+### AM
 
-#### PM
+- 
+
+### PM
 
 - 
