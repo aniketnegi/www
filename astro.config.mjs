@@ -18,5 +18,6 @@ export default defineConfig({
     gfm: false
   })],
   site: "https://www.aniketnegi.com/",
-  trailingSlash: 'always'
+  trailingSlash: 'always',
+  imageService: true, // optimise images fetched from URL via vercel service
 });
