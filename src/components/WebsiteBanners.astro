@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+
+import aniketnegi from "../imgs/banners/aniketnegi.png";
+import bitwarden from "../imgs/banners/bitwarden.gif";
+import landchad from "../imgs/banners/landchad.gif";
+// import poggerer from "../imgs/banners/poggerer.xyz.png";
+
+const images = [
+    {
+        name: aniketnegi,
+        url: "https://www.aniketnegi.com/",
+    },
+    {
+        name: bitwarden,
+        url: "https://bitwarden.com/",
+    },
+    {
+        name: landchad,
+        url: "https://landchad.net/",
+    },
+];
+---
+
+<div class="lg:max-w-7xl">
+    <ul
+        class="flex flex-row flex-wrap items-center justify-center gap-4 w-full"
+    >
+        {
+            images.map((image) => (
+                <li>
+                    <a href={image.url}>
+                        <Image
+                            src={image.name}
+                            alt="88x31 banner"
+                            width={88}
+                            height={31}
+                        />
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
