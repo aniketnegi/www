@@ -1,23 +1,22 @@
 ---
 import { Image } from "astro:assets";
 
-import aniketnegi from "../imgs/banners/aniketnegi.png";
-import bitwarden from "../imgs/banners/bitwarden.gif";
-import landchad from "../imgs/banners/landchad.gif";
-// import poggerer from "../imgs/banners/poggerer.xyz.png";
-
 const images = [
     {
-        name: aniketnegi,
+        src: "https://www.aniketnegi.com/aniketnegi.png",
         url: "https://www.aniketnegi.com/",
     },
     {
-        name: bitwarden,
+        src: "https://cyber.dabamos.de/88x31/bitwarden.gif",
         url: "https://bitwarden.com/",
     },
     {
-        name: landchad,
+        src: "https://landchad.net/pix/landchad.gif",
         url: "https://landchad.net/",
+    },
+    {
+        src: "https://demonkingswarn.live/assets/media/buttons/web-button.svg",
+        url: "https://demonkingswarn.live/",
     },
 ];
 ---
@@ -31,7 +30,7 @@ const images = [
                 <li>
                     <a href={image.url}>
                         <Image
-                            src={image.name}
+                            src={image.src}
                             alt="88x31 banner"
                             width={88}
                             height={31}
