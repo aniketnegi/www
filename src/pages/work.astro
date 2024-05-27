@@ -55,14 +55,14 @@ const breadcrumbs: Crumb[] = [{ title: "WORK", href: "/work/" }];
                 workEntries.map((project) => (
                     <tr class=" hover:bg-[#eeeeee] dark:hover:bg-[#1b1b1b] transition ease-in-out border-b border-LM-Secondary dark:border-DM-Secondary ">
                         {/* <!-- TODO@ankt: content collection with yapping for projects --> */}
-                        <td class="py-3">
+                        <td class="py-3 px-2 sm:px-0">
                             <a href={`/work/${project.slug}/`}
                             class="lowercase hover:text-orange underline underline-offset-4 decoration-LM-Text-Secondary dark:decoration-DM-Text-Secondary hover:decoration-orange"
                             >
                                 {project.data.title}
                             </a>
                         </td>
-                        <td class="py-3">{project.data.description}</td>
+                        <td class="py-3 text-left md:text-center">{project.data.description}</td>
                         {/* <td>
                             {
                                 <ul>
