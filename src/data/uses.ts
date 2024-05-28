@@ -35,7 +35,8 @@ export const usesData: usesCategory[] = [
   {
     category: "programming",
     items: [
-      { object: "environment", value: "Ubuntu 22.04 via WSL2" },
+      { object: "Environment", value: "Ubuntu 22.04 via WSL2" },
+      { object: "Text Editor", value: "Neovim" },
       { object: "IDE", value: "VSCode" },
       { object: "Font", value: "Iosevka Nerd Font" },
     ]
