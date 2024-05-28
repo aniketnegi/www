@@ -1,8 +1,8 @@
 ---
 const siteData = {
-    siteUrl: "https:/aniketnegi.vercel.app/", // Always put "/" at the end of the URL
+siteUrl: "https://aniketnegi.com/", // Always put "/" at the end of the URL
     author: "aniketnegi",
-    desc: "A personal website which serves as a place for my interaction with the world. I write blogs and journals, and thoughts about life, tech, cinema, literature, and the human mind in it.",
+    desc: "A personal website which serves as a place for my interaction with the world. I write blogs and journals, and thoughts about life, tech, cinema, literature, and the human mind.",
     title: "aniket negi's website",
     ogImage: "favicon.ico",
     keywords:
@@ -46,7 +46,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
-<meta name="twitte:card" content="summary_large_image" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content={twitterHandle} />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title} />

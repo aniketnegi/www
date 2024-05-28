@@ -5,6 +5,8 @@ import tunnel from "astro-tunnel";
 import playformCompress from "@playform/compress";
 import mdx from "@astrojs/mdx";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), icon(), tunnel(), playformCompress(), mdx({
@@ -16,8 +18,8 @@ export default defineConfig({
     remarkPlugins: [],
     rehypePlugins: [],
     gfm: false
-  })],
+  }), sitemap()],
   site: "https://www.aniketnegi.com/",
   trailingSlash: 'always',
-  imageService: true, // optimise images fetched from URL via vercel service
+  imageService: true // optimise images fetched from URL via vercel service
 });
