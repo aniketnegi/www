@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [tailwind(), icon(), tunnel(), playformCompress(), mdx({
     syntaxHighlight: 'shiki',
     shikiConfig: {
-      theme: "houston",
+      theme: "ayu-dark",
       defaultColor: false
     },
     remarkPlugins: [],
