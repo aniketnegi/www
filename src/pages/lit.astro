@@ -11,145 +11,140 @@ import type { Crumb } from "../utils/types";
 const breadcrumbs: Array<Crumb> = [{ title: "literature", href: "/lit/" }];
 
 const myProseEntries = await getCollection("lit", ({ id, data }) => {
-    return id.startsWith("prose/") && data.author === "Aniket Negi";
+  return id.startsWith("prose/") && data.author === "Aniket Negi";
 });
 const myPoemEntries = await getCollection("lit", ({ id, data }) => {
-    return id.startsWith("poem/") && data.author === "Aniket Negi";
+  return id.startsWith("poem/") && data.author === "Aniket Negi";
 });
 const foundProseEntries = await getCollection("lit", ({ id, data }) => {
-    return id.startsWith("prose/") && data.author !== "Aniket Negi";
+  return id.startsWith("prose/") && data.author !== "Aniket Negi";
 });
 const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
-    return id.startsWith("poem/") && data.author !== "Aniket Negi";
+  return id.startsWith("poem/") && data.author !== "Aniket Negi";
 });
 ---
 
 <BaseLayout title="ankt / lit" {breadcrumbs} current="lit">
-    <div class="flex flex-col space-y-4 mb-10">
-        <h1
-            class="text-LM-Text dark:text-DM-Text font-sans text-2xl uppercase tracking-[-0.015rem] font-medium"
-        >
-            LIBRARY
-        </h1>
-        <section class="w-full sm:w-7/12 font-serif text-base">
-            <p class="w-full">
-                Literature has the power to transform, to challenge, and to
-                comfort. It's a way to connect with others, to understand
-                ourselves better, and to explore the depths of our existence.
-                This page is dedicated to celebrating the power of words to move
-                us. Here, you will find an array of my original poetry and
-                prose, as well as carefully selected pieces that have left a
-                lasting impression on me. Let's delve into the deep shit and
-                find beauty in the written word.
-            </p>
-        </section>
-    </div>
+  <div class="mb-10 flex flex-col space-y-4">
+    <h1
+      class="font-sans text-2xl font-medium uppercase tracking-[-0.015rem] text-LM-Text dark:text-DM-Text"
+    >
+      LIBRARY
+    </h1>
+    <section class="w-full font-serif text-base sm:w-7/12">
+      <p class="w-full">
+        Literature has the power to transform, to challenge, and to comfort.
+        It's a way to connect with others, to understand ourselves better, and
+        to explore the depths of our existence. This page is dedicated to
+        celebrating the power of words to move us. Here, you will find an array
+        of my original poetry and prose, as well as carefully selected pieces
+        that have left a lasting impression on me. Let's delve into the deep
+        shit and find beauty in the written word.
+      </p>
+    </section>
+  </div>
 
-    <hr
-        class="border-LM-Secondary dark:border-DM-Secondary transition border-[1px]"
-    />
+  <hr
+    class="border-[1px] border-LM-Secondary transition dark:border-DM-Secondary"
+  />
 
-    <!-- <div class="flex w-full justify-center my-8">
+  <!-- <div class="flex w-full justify-center my-8">
         <Image
             src={lit_banner}
             alt="Dr. Manhattan sitting on Mars in deep thought"
             class="w-full sm:w-9/12 rounded-md shadow-xl"
         />
     </div> -->
-    <div
-        class:list={[
-            "flex flex-col items-start w-full sm:w-1/2",
-            "prose",
-            "prose-headings:text-LM-Text prose-h2:uppercase prose-headings:mb-0 dark:prose-headings:text-DM-Text prose-headings:font-sans prose-h2:font-medium prose-h3:font-medium prose-headings:tracking-[-0.03rem]",
-            "prose-li:text-LM-Text-Secondary dark:prose-li:text-DM-Text-Secondary",
-            "hover:prose-a:text-orange prose-a:text-LM-Text dark:prose-a:text-DM-Text prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-a:font-serif",
-        ]}
-    >
-        <section class="flex flex-col space-y-1">
-            <h2>mine</h2>
-            <div>
-                <h3>prose</h3>
-                <ul>
-                    {
-                        myProseEntries.length !== 0 ? (
-                            myProseEntries.map((entry) => (
-                                <li>
-                                    <a href={`${entry.slug}/`}>
-                                        {entry.data.title}
-                                    </a>
-                                </li>
-                            ))
-                        ) : (
-                            <li>
-                                <span>Nothing here yet!</span>
-                            </li>
-                        )
-                    }
-                </ul>
-            </div>
-            <div>
-                <h3>poetry</h3>
-                <ul>
-                    {
-                        myPoemEntries.length !== 0 ? (
-                            myPoemEntries.map((entry) => (
-                                <li>
-                                    <a href={`${entry.slug}/`}>
-                                        {entry.data.title}
-                                    </a>
-                                </li>
-                            ))
-                        ) : (
-                            <li>
-                                <span>Nothing here yet!</span>
-                            </li>
-                        )
-                    }
-                </ul>
-            </div>
-        </section>
-        <section class="flex flex-col">
-            <h2>found</h2>
-            <div>
-                <h3>prose</h3>
-                <ul>
-                    {
-                        foundProseEntries.length !== 0 ? (
-                            foundProseEntries.map((entry) => (
-                                <li>
-                                    <a href={`${entry.slug}/`}>
-                                        {entry.data.title} ⏤ {entry.data.author}
-                                    </a>
-                                </li>
-                            ))
-                        ) : (
-                            <li>
-                                <span>Nothing here yet!</span>
-                            </li>
-                        )
-                    }
-                </ul>
-            </div>
-            <div>
-                <h3>poetry</h3>
-                <ul>
-                    {
-                        foundPoemEntries.length !== 0 ? (
-                            foundPoemEntries.map((entry) => (
-                                <li>
-                                    <a href={`${entry.slug}/`}>
-                                        {entry.data.title} ⏤ {entry.data.author}
-                                    </a>
-                                </li>
-                            ))
-                        ) : (
-                            <li>
-                                <span>Nothing here yet!</span>
-                            </li>
-                        )
-                    }
-                </ul>
-            </div>
-        </section>
-    </div>
+  <div
+    class:list={[
+      "flex w-full flex-col items-start sm:w-1/2",
+      "prose",
+      "prose-headings:mb-0 prose-headings:font-sans prose-headings:tracking-[-0.03rem] prose-headings:text-LM-Text prose-h2:font-medium prose-h2:uppercase prose-h3:font-medium dark:prose-headings:text-DM-Text",
+      "prose-li:text-LM-Text-Secondary dark:prose-li:text-DM-Text-Secondary",
+      "prose-a:font-serif prose-a:text-LM-Text prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:text-orange hover:prose-a:underline dark:prose-a:text-DM-Text",
+    ]}
+  >
+    <section class="flex flex-col space-y-1">
+      <h2>mine</h2>
+      <div>
+        <h3>prose</h3>
+        <ul>
+          {
+            myProseEntries.length !== 0 ? (
+              myProseEntries.map((entry) => (
+                <li>
+                  <a href={`${entry.slug}/`}>{entry.data.title}</a>
+                </li>
+              ))
+            ) : (
+              <li>
+                <span>Nothing here yet!</span>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+      <div>
+        <h3>poetry</h3>
+        <ul>
+          {
+            myPoemEntries.length !== 0 ? (
+              myPoemEntries.map((entry) => (
+                <li>
+                  <a href={`${entry.slug}/`}>{entry.data.title}</a>
+                </li>
+              ))
+            ) : (
+              <li>
+                <span>Nothing here yet!</span>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+    </section>
+    <section class="flex flex-col">
+      <h2>found</h2>
+      <div>
+        <h3>prose</h3>
+        <ul>
+          {
+            foundProseEntries.length !== 0 ? (
+              foundProseEntries.map((entry) => (
+                <li>
+                  <a href={`${entry.slug}/`}>
+                    {entry.data.title} ⏤ {entry.data.author}
+                  </a>
+                </li>
+              ))
+            ) : (
+              <li>
+                <span>Nothing here yet!</span>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+      <div>
+        <h3>poetry</h3>
+        <ul>
+          {
+            foundPoemEntries.length !== 0 ? (
+              foundPoemEntries.map((entry) => (
+                <li>
+                  <a href={`${entry.slug}/`}>
+                    {entry.data.title} ⏤ {entry.data.author}
+                  </a>
+                </li>
+              ))
+            ) : (
+              <li>
+                <span>Nothing here yet!</span>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+    </section>
+  </div>
 </BaseLayout>

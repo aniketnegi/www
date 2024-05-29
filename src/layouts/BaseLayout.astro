@@ -10,9 +10,9 @@ import ThemeManager from "../components/ThemeManager.astro";
 import type { Crumb, currentPage } from "../utils/types";
 
 interface BaseLayoutProps {
-    title?: string;
-    current: currentPage;
-    breadcrumbs: Crumb[];
+  title?: string;
+  current: currentPage;
+  breadcrumbs: Crumb[];
 }
 
 const { title, current, breadcrumbs } = Astro.props as BaseLayoutProps;
@@ -24,24 +24,25 @@ import "@fontsource-variable/newsreader";
 
 <!doctype html>
 <html
-    lang="en"
-    class="selection:bg-orange selection:text-[#E9E9E9] scroll-smooth antialiased"
+  lang="en"
+  class="scroll-smooth antialiased selection:bg-orange selection:text-[#E9E9E9]"
 >
-    <head>
-        <Head title={title} />
-        <ThemeManager />
-        <ViewTransitions />
-    </head>
-    <body
-        class="bg-LM-Background dark:bg-DM-Background transition ease-in-out text-LM-Text dark:text-DM-Text flex flex-col items-center mx-6 mb-8"
-    >
-        <header class="mt-6 mb-4 sm:mt-4 w-full xl:max-w-7xl xl:my-8">
-            <Nav {current} {breadcrumbs} />
-        </header>
-        <main class="my-4 xl:max-w-7xl xl:my-0 w-full">
-            <slot />
-        </main>
+  <head>
+    <Head title={title} />
+    <ThemeManager />
+    <ViewTransitions />
+  </head>
+  <body
+    class="mx-6 mb-8 flex flex-col items-center bg-LM-Background text-LM-Text transition ease-in-out dark:bg-DM-Background dark:text-DM-Text"
+  >
+    <header class="mb-4 mt-6 w-full sm:mt-4 xl:my-8 xl:max-w-7xl">
+      <Nav {current} {breadcrumbs} />
+    </header>
+    <main class="my-4 w-full xl:my-0 xl:max-w-7xl">
+      <slot />
+    </main>
 
-        <Footer />
-    </body>
+    <Footer />
+    >
+  </body>
 </html>

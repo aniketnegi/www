@@ -1,33 +1,33 @@
 ---
 const siteData = {
-siteUrl: "https://aniketnegi.com/", // Always put "/" at the end of the URL
-    author: "aniketnegi",
-    desc: "A personal website which serves as a place for my interaction with the world. I write blogs and journals, and thoughts about life, tech, cinema, literature, and the human mind.",
-    title: "aniket negi's website",
-    ogImage: "favicon.ico",
-    keywords:
-        "Personal website, landing page, developer, home, writing, literature, blogs, technology",
-    // postPerPage: 3
+  siteUrl: "https://aniketnegi.com/", // Always put "/" at the end of the URL
+  author: "aniketnegi",
+  desc: "A personal website which serves as a place for my interaction with the world. I write blogs and journals, and thoughts about life, tech, cinema, literature, and the human mind.",
+  title: "aniket negi's website",
+  ogImage: "favicon.ico",
+  keywords:
+    "Personal website, landing page, developer, home, writing, literature, blogs, technology",
+  // postPerPage: 3
 };
 
 interface HeadProps {
-    title?: string;
-    description?: string;
-    author?: string;
-    keywords?: string;
-    url?: string;
-    twitterhandle?: string;
-    image?: string;
+  title?: string;
+  description?: string;
+  author?: string;
+  keywords?: string;
+  url?: string;
+  twitterhandle?: string;
+  image?: string;
 }
 
 const {
-    title,
-    description,
-    author = siteData.author,
-    keywords,
-    url,
-    twitterhandle,
-    image,
+  title,
+  description,
+  author = siteData.author,
+  keywords,
+  url,
+  twitterhandle,
+  image,
 } = Astro.props as HeadProps;
 
 const siteTitle = title ?? siteData.title;
@@ -69,9 +69,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="author" content={author} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-<!-- Umami site analytics --> 
-<script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="750725f9-02ae-4ca2-a93d-698d3303ffcd"></script>
-
+<!-- Umami site analytics -->
+<script
+  is:inline
+  defer
+  src="https://cloud.umami.is/script.js"
+  data-website-id="750725f9-02ae-4ca2-a93d-698d3303ffcd"></script>
 
 <!-- Theme Meta Tags -->
 <meta name="robots" content="index" />
