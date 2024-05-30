@@ -45,8 +45,8 @@ export default {
           "0 0px 35px rgba(244, 133, 37, 0.2)"
         ],
         glowlight: [
-          "0 0px 20px rgba(244, 133, 37, 0.57)",
-          "0 0px 35px rgba(244, 133, 37, 0.4)"
+          "0 0px 20px rgba(185, 107, 19, 0.57)",
+          "0 0px 35px rgba(185, 107, 19, 0.48)"
         ]
       },
       spacing: {
