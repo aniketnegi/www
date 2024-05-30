@@ -11,60 +11,65 @@ import logo from "../imgs/ankt.svg";
 // import "@fontsource-variable/playfair-display";
 
 interface NavProps {
-    current: string;
-    breadcrumbs: Crumb[];
+  current: string;
+  breadcrumbs: Crumb[];
 }
 
 const { current, breadcrumbs } = Astro.props as NavProps;
 ---
 
-<nav class="flex flex-col items-start space-y-8 sm:space-y-12 w-full">
-    <div
-        class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 items-center w-full justify-between h-full"
-    >
-        <div class="flex flex-row justify-between items-center w-full sm:w-fit">
-            <a href="/">
-                <!-- font(playfair display) is too big(40kb) for 4 letters, might optimise in future -->
-                <Image
-                    src={logo}
-                    alt="Aniket Negi's personal Logo"
-                    width={73}
-                    height={48}
-                    loading="eager"
-                    class="select-none"
-                />
-            </a>
-            <div class="block sm:hidden">
-                <ThemeIcon key={0} />
-            </div>
-        </div>
-
-        <ul
-            class="flex flex-row justify-between sm:justify-normal items-center h-full sm:space-x-6 w-full sm:w-fit text-LM-Nav-Unselected dark:text-DM-Nav-Unselected font-sans text-base font-medium tracking-tight"
-        >
-            {
-                navLinks.map((navLink) => (
-                    <li>
-                        <a
-                            class:list={[
-                                navLink.name === current
-                                    ? "text-LM-Nav-Selected dark:text-DM-Nav-Selected"
-                                    : "",
-                                "hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected",
-                            ]}
-                            href={navLink.href}
-                        >
-                            {navLink.name}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-        <div class="sm:block hidden">
-            <ThemeIcon key={1} />
-        </div>
+<nav class="flex w-full flex-col items-start space-y-8 sm:space-y-12">
+  <div
+    class="flex h-full w-full flex-col items-center justify-between space-y-6 sm:flex-row sm:space-y-0"
+  >
+    <div class="flex w-full flex-row items-center justify-between sm:w-fit">
+      <a href="/">
+        <!-- font(playfair display) is too big(40kb) for 4 letters, might optimise in future -->
+        <Image
+          src={logo}
+          alt="Aniket Negi's personal Logo"
+          width={73}
+          height={48}
+          loading="eager"
+          class:list={[
+            "select-none",
+            current === "home"
+              ? "drop-shadow-glowlight dark:drop-shadow-glowdark"
+              : "",
+          ]}
+        />
+      </a>
+      <div class="block sm:hidden">
+        <ThemeIcon key={0} />
+      </div>
     </div>
-    <Breadcrumbs {breadcrumbs} />
+
+    <ul
+      class="flex h-full w-full flex-row items-center justify-between font-sans text-base font-medium tracking-tight text-LM-Nav-Unselected sm:w-fit sm:justify-normal sm:space-x-6 dark:text-DM-Nav-Unselected"
+    >
+      {
+        navLinks.map((navLink) => (
+          <li>
+            <a
+              class:list={[
+                navLink.name === current
+                  ? "text-LM-Nav-Selected dark:text-DM-Nav-Selected"
+                  : "",
+                "hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected",
+              ]}
+              href={navLink.href}
+            >
+              {navLink.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="hidden sm:block">
+      <ThemeIcon key={1} />
+    </div>
+  </div>
+  <Breadcrumbs {breadcrumbs} />
 </nav>
 
 <!-- <style>
