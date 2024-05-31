@@ -43,6 +43,6 @@ export const usesData: usesCategory[] = [
   },
   {
     category: "website",
-    description: "I made this website using AstroJS, TailwindCSS, and MDX. It is hosted on Vercel. I use umami to log site traffic"
+    description: "I made this website using AstroJS, TailwindCSS, and MDX. It is hosted on Vercel."
   }
 ]
