@@ -93,7 +93,6 @@ export default {
             '--tw-prose-invert-th-borders': theme('colors.DM-Text'),
             '--tw-prose-invert-td-borders': theme('colors.DM-Text'),
           }
-
         }
       }),
     },
@@ -102,6 +101,4 @@ export default {
   plugins: [
     require('@tailwindcss/typography'),
   ],
-
-
 }
