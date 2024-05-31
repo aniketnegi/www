@@ -57,6 +57,7 @@ const { current, breadcrumbs } = Astro.props as NavProps;
                   : "",
                 "hover:text-LM-Nav-Selected dark:hover:text-DM-Nav-Selected",
               ]}
+              aria-label={navLink.name}
               href={navLink.href}
             >
               {navLink.name}

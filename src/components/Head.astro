@@ -31,12 +31,14 @@ const {
 } = Astro.props as HeadProps;
 
 const siteTitle = title ?? siteData.title;
-const metaDescription = description ? description : siteData.desc;
-const metaKeywords = keywords ? keywords : siteData.keywords;
+const metaDescription = description ?? siteData.desc;
+const metaKeywords = keywords ?? siteData.keywords;
 const siteURL = url ?? siteData.siteUrl;
 const twitterHandle = twitterhandle ?? "aniketnegs";
 const imagePreview = image ?? `${siteURL}${siteData.ogImage}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+console.log("from head");
+console.log(new URL(Astro.url.pathname, Astro.site));
 ---
 
 <!-- Global Metadata -->
@@ -45,10 +47,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={canonicalURL.href} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content={twitterHandle} />
-<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:url" content={canonicalURL.href} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={imagePreview} />

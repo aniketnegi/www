@@ -1,21 +1,19 @@
 <theme-icon> </theme-icon>
 
 <script is:inline>
-    if (!customElements.get("theme-icon")) {
-        customElements.define(
-            "theme-icon",
-            class extends HTMLElement {
-                connectedCallback() {
-                    this.innerHTML = `<button><div class="motion-safe:hover:scale-110 transform-gpu transition ease-in-out rounded-2xl bg-DM-Background dark:bg-LM-Background drop-shadow-2xl h-7 w-7"></div></button>`;
+  if (!customElements.get("theme-icon")) {
+    customElements.define(
+      "theme-icon",
+      class extends HTMLElement {
+        connectedCallback() {
+          this.innerHTML = `<button aria-label="Switch Theme" ><div class="motion-safe:hover:scale-110 transform-gpu transition ease-in-out rounded-2xl bg-DM-Background dark:bg-LM-Background drop-shadow-2xl h-7 w-7"></div></button>`;
 
-                    const button = this.querySelector("button");
-                    button.addEventListener("click", () => {
-                        theme.setTheme(
-                            theme.getTheme() === "dark" ? "light" : "dark",
-                        );
-                    });
-                }
-            },
-        );
-    }
+          const button = this.querySelector("button");
+          button.addEventListener("click", () => {
+            theme.setTheme(theme.getTheme() === "dark" ? "light" : "dark");
+          });
+        }
+      },
+    );
+  }
 </script>
