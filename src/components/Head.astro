@@ -22,7 +22,7 @@ interface HeadProps {
 
 const {
   title,
-  description,
+  description = siteData.desc,
   author = siteData.author,
   keywords,
   url,
@@ -37,8 +37,6 @@ const siteURL = url ?? siteData.siteUrl;
 const twitterHandle = twitterhandle ?? "aniketnegs";
 const imagePreview = image ?? `${siteURL}${siteData.ogImage}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-console.log("from head");
-console.log(new URL(Astro.url.pathname, Astro.site));
 ---
 
 <!-- Global Metadata -->
