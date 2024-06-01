@@ -8,7 +8,7 @@ import { Image } from "astro:assets";
 
 import "@fontsource-variable/jetbrains-mono";
 
-import "../../styles/styles.css";
+// import "../../styles/styles.css";
 
 import { Icon } from "astro-icon/components";
 
@@ -23,7 +23,7 @@ interface Props {
 
 const { frontmatter, slug } = Astro.props as Props;
 
-const { title, tags, description, author, banner, pubDate } = frontmatter.data;
+const { title, tags, description, banner, pubDate } = frontmatter.data;
 
 const dotw = pubDate.toLocaleDateString("default", { weekday: "short" }); // Day of The Week
 const date = `${pubDate.getDate() < 10 ? "0" : ""}${pubDate.getDate().toString().slice(-2)}`;
