@@ -5,7 +5,6 @@ import tunnel from "astro-tunnel";
 import playformCompress from "@playform/compress";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,8 +20,4 @@ export default defineConfig({
   }), sitemap()],
   site: "https://www.aniketnegi.com/",
   trailingSlash: 'always',
-  output: "static",
-  adapter: vercel({
-    // imageService: true, // optimise images fetched from URL via vercel service
-  })
 });
