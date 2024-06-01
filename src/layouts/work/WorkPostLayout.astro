@@ -12,8 +12,8 @@ import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-    frontmatter: CollectionEntry<"work">;
-    slug: string;
+  frontmatter: CollectionEntry<"work">;
+  slug: string;
 }
 
 const { frontmatter, slug } = Astro.props as Props;
@@ -23,108 +23,108 @@ const { title, tags, description, links } = frontmatter.data;
 const pageTitle = `work / ${title}`;
 const current = "work";
 const breadcrumbs: Array<Crumb> = [
-    { title: "WORK", href: "/work/" },
-    { title: title, href: `/work/${slug}/` },
+  { title: "WORK", href: "/work/" },
+  { title: title, href: `/work/${slug}/` },
 ];
 ---
 
 <!-- https://docs.astro.build/en/guides/markdown-content/ -->
 <BaseLayout title={pageTitle} {current} {breadcrumbs}>
-    <div class="flex flex-row justify-center space-x-8">
-        <div class="flex flex-col w-full max-w-4xl">
-            <div class="flex flex-col items-start space-y-4 mb-24">
-                <h1
-                    class="font-sans text-4xl font-medium normal-case tracking-[-0.02rem]"
-                >
-                    {title}
-                </h1>
-                <div class="flex flex-col space-y-6 items-start">
-                    <ul
-                        class="flex flex-row items-center flex-wrap space-x-0.5 font-sans text-base pb-1 tracking[-0.0175rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+  <div class="flex flex-row justify-center space-x-8">
+    <div class="flex w-full max-w-4xl flex-col">
+      <div class="mb-24 flex flex-col items-start space-y-4">
+        <h1
+          class="font-sans text-4xl font-medium normal-case tracking-[-0.02rem]"
+        >
+          {title}
+        </h1>
+        <div class="flex flex-col items-start space-y-6">
+          <ul
+            class="tracking[-0.0175rem] flex flex-row flex-wrap items-center space-x-0.5 pb-1 font-sans text-base text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+          >
+            {
+              tags.map((tag, idx) => (
+                <>
+                  <li>
+                    <a
+                      class="underline underline-offset-4 hover:text-orange"
+                      href={`/work/tags/${tag}/`}
                     >
-                        {
-                            tags.map((tag, idx) => (
-                                <>
-                                    <li>
-                                        <a
-                                            class="hover:text-orange underline underline-offset-4"
-                                            href={`/work/tags/${tag}/`}
-                                        >
-                                            {tag}
-                                        </a>
-                                    </li>
+                      {tag}
+                    </a>
+                  </li>
 
-                                    {idx < tags.length - 1 && (
-                                        <Icon
-                                            name="dot"
-                                            size={16}
-                                            class="text-LM-Nav-Selected dark:text-DM-Nav-Selected"
-                                        />
-                                    )}
-                                </>
-                            ))
-                        }
-                    </ul>
-                    <p
-                        class="font-serif text-base font-normal tracking-[-0.01rem] text-LM-Text dark:text-DM-Text"
+                  {idx < tags.length - 1 && (
+                    <Icon
+                      name="dot"
+                      size={16}
+                      class="text-LM-Nav-Selected dark:text-DM-Nav-Selected"
+                    />
+                  )}
+                </>
+              ))
+            }
+          </ul>
+          <p
+            class="font-serif text-base font-normal tracking-[-0.01rem] text-LM-Text dark:text-DM-Text"
+          >
+            {description}
+          </p>
+
+          <ul
+            class="tracking[-0.0175rem] flex flex-row flex-wrap items-center space-x-0.5 pb-1 font-sans text-base font-medium text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
+          >
+            {
+              links.map((link, idx) => (
+                <>
+                  <li>
+                    <a
+                      class="underline underline-offset-4 hover:text-orange"
+                      href={link.url}
                     >
-                        {description}
-                    </p>
+                      {link.name}
+                    </a>
+                  </li>
 
-                    <ul
-                        class="flex flex-row items-center flex-wrap space-x-0.5 font-sans font-medium text-base pb-1 tracking[-0.0175rem] text-LM-Nav-Unselected dark:text-DM-Nav-Unselected"
-                    >
-                        {
-                            links.map((link, idx) => (
-                                <>
-                                    <li>
-                                        <a
-                                            class="hover:text-orange underline underline-offset-4"
-                                            href={link.url}
-                                        >
-                                            {link.name}
-                                        </a>
-                                    </li>
-
-                                    {idx < links.length - 1 && (
-                                        <Icon
-                                            name="dot"
-                                            size={16}
-                                            class="text-LM-Nav-Selected dark:text-DM-Nav-Selected"
-                                        />
-                                    )}
-                                </>
-                            ))
-                        }
-                    </ul>
-                </div>
-            </div>
-
-            <div
-                class:list={[
-                    "prose dark:prose-invert",
-                    "prose-headings:uppercase prose-headings:font-sans prose-headings:font-normal prose-headings:tracking-[-0.03rem]",
-                    "prose-a:text-orange prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline",
-                    "prose-code:font-mono",
-                    "prose-p:font-serif",
-                    "prose-table:font-serif",
-                    "prose-ul:font-serif prose-ol:font-serif",
-                    "prose-blockquote:not-italic",
-                    "max-w-none",
-                ]}
-            >
-                <slot />
-            </div>
+                  {idx < links.length - 1 && (
+                    <Icon
+                      name="dot"
+                      size={16}
+                      class="text-LM-Nav-Selected dark:text-DM-Nav-Selected"
+                    />
+                  )}
+                </>
+              ))
+            }
+          </ul>
         </div>
-        <!-- TODO@ankt: for now hidden -->
-        <!-- <div class="hidden lg:block">REFERENCES: TBD</div> -->
+      </div>
+
+      <div
+        class:list={[
+          "prose dark:prose-invert",
+          "prose-headings:font-sans prose-headings:font-normal prose-headings:uppercase prose-headings:tracking-[-0.03rem]",
+          "prose-a:text-orange prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline",
+          "prose-code:font-mono",
+          "prose-p:font-serif",
+          "prose-table:font-serif",
+          "prose-ol:font-serif prose-ul:font-serif",
+          "prose-blockquote:not-italic",
+          "max-w-none",
+        ]}
+      >
+        <slot />
+      </div>
     </div>
+    <!-- TODO@ankt: for now hidden -->
+    <!-- <div class="hidden lg:block">REFERENCES: TBD</div> -->
+  </div>
 </BaseLayout>
 
 <style>
-    pre code {
-        font-family: "JetBrains Mono Variable", "ui-monospace", "SFMono-Regular",
-            "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New",
-            "monospace";
-    }
+  pre code {
+    font-family: "JetBrains Mono Variable", "ui-monospace", "SFMono-Regular",
+      "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New",
+      "monospace";
+  }
 </style>

@@ -3,6 +3,7 @@ title: "Catharsis"
 author: "Aniket Negi"
 pubDate: 2024-05-22
 ---
+
 The old man was sitting on a bench – all alone on a cold December night. People passed by him, but he paid no heed to them. His eyes were focussed on the rose he held in his hands. He watched it closely as its colour slowly faded away and its velvety red petals lost their beauty and shrivelled up. He wanted to look at it for as long as he could, before he had no choice but to execute his plan. He instantly had a flashback, a memory, of his daughter, handing him the rose the other day. The warmth of her hands brought tears to his eyes.
 
 Another moment, a thought pulled him away from his bliss and snapped him back to reality. He remembered why he was sitting there, right in from of the mall. He had not slept yesternight for he could not stop thinking about this very day.It was time. He rose up from the bench he was sitting on, pocketed the rose, and kept it close to his heart.
