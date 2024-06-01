@@ -23,6 +23,6 @@ export default defineConfig({
   trailingSlash: 'always',
   output: "static",
   adapter: vercel({
-    imageService: true, // optimise images fetched from URL via vercel service
+    // imageService: true, // optimise images fetched from URL via vercel service
   })
 });
