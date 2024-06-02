@@ -2,43 +2,42 @@
 import { Image } from "astro:assets";
 
 const images = [
-    {
-        src: "https://www.aniketnegi.com/aniketnegi.png",
-        url: "https://www.aniketnegi.com/",
-    },
-    {
-        src: "https://cyber.dabamos.de/88x31/bitwarden.gif",
-        url: "https://bitwarden.com/",
-    },
-    {
-        src: "https://landchad.net/pix/landchad.gif",
-        url: "https://landchad.net/",
-    },
-    {
-        src: "https://demonkingswarn.live/assets/media/buttons/web-button.svg",
-        url: "https://demonkingswarn.live/",
-    },
+  {
+    src: "https://www.aniketnegi.com/aniketnegi.png",
+    url: "https://www.aniketnegi.com/",
+  },
+  {
+    src: "https://cyber.dabamos.de/88x31/bitwarden.gif",
+    url: "https://bitwarden.com/",
+  },
+  {
+    src: "https://landchad.net/pix/landchad.gif",
+    url: "https://landchad.net/",
+  },
+  {
+    src: "https://demonkingswarn.live/assets/media/buttons/web-button.svg",
+    url: "https://demonkingswarn.live/",
+  },
 ];
 ---
 
 <div class="lg:max-w-7xl">
-    <ul
-        class="flex flex-row flex-wrap items-center justify-center gap-4 w-full"
-    >
-        {
-            images.map((image) => (
-                <li>
-                    <a href={image.url} target="_blank" >
-                        <Image
-                            src={image.src}
-                            alt="88x31 banner"
-                            width={88}
-                            height={31}
-                            loading="eager"
-                        />
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+  <ul class="flex w-full flex-row flex-wrap items-center justify-center gap-4">
+    {
+      images.map((image) => (
+        <li>
+          <a href={image.url} target="_blank">
+            <Image
+              src={image.src}
+              alt="88x31 banner"
+              width={88}
+              height={31}
+              quality="mid"
+              loading="eager"
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </div>
