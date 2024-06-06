@@ -16,7 +16,7 @@ export default defineConfig({
     },
     remarkPlugins: [],
     rehypePlugins: [],
-    gfm: false
+    gfm: true
   }), sitemap()],
   site: "https://www.aniketnegi.com/",
   trailingSlash: 'always',
