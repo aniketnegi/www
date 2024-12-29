@@ -1,23 +1,24 @@
 ---
 import { getCollection } from "astro:content";
-import PoemLayout from "../../../layouts/lit/PoemLayout.astro";
+import ProseLayout from "../../../layouts/lit/ProseLayout.astro";
+import { render } from "astro:content";
 
 // https://docs.astro.build/en/guides/routing/#dynamic-routes
 export async function getStaticPaths() {
     const poemEntries = await getCollection("lit", ({ id }) => {
-        return id.startsWith("poem/");
+        return id.startsWith("prose/");
     });
 
     return poemEntries.map((entry) => ({
-        params: { id: entry.id.slice(5) },
+        params: { id: entry.id.slice(6) },
         props: { entry },
     }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
-<PoemLayout frontmatter={entry}>
+<ProseLayout frontmatter={entry}>
     <Content />
-</PoemLayout>
+</ProseLayout>

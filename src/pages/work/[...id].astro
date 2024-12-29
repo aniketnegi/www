@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import WorkPostLayout from "../../layouts/work/WorkPostLayout.astro";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
     const workEntries = await getCollection("work");
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <WorkPostLayout frontmatter={entry} id={entry.id}>

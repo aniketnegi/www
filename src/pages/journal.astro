@@ -1,12 +1,12 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import type { Crumb, currentPage } from "../utils/types";
 import JournalEntry from "../components/journal/JournalEntry.astro";
 
 // import UnderConstructionLayout from "../layouts/UnderConstructionLayout.astro";
 
-let journalEntries = await getCollection("journal");
+let journalEntries: CollectionEntry<"journal">[] = await getCollection("journal");
 
 journalEntries = journalEntries.sort(
     (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
