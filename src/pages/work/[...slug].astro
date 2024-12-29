@@ -5,7 +5,7 @@ import WorkPostLayout from "../../layouts/work/WorkPostLayout.astro";
 export async function getStaticPaths() {
     const workEntries = await getCollection("work");
     return workEntries.map((entry) => ({
-        params: { slug: entry.slug },
+        params: { id: entry.id},
         props: { entry },
     }));
 }
@@ -14,6 +14,6 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<WorkPostLayout frontmatter={entry} slug={entry.slug}>
+<WorkPostLayout frontmatter={entry} id={entry.id}>
     <Content />
 </WorkPostLayout>

@@ -13,10 +13,10 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   frontmatter: CollectionEntry<"work">;
-  slug: string;
+  id: string;
 }
 
-const { frontmatter, slug } = Astro.props as Props;
+const { frontmatter, id } = Astro.props as Props;
 
 const { title, tags, description, links } = frontmatter.data;
 
@@ -24,7 +24,7 @@ const pageTitle = `work / ${title}`;
 const current = "work";
 const breadcrumbs: Array<Crumb> = [
   { title: "WORK", href: "/work/" },
-  { title: title, href: `/work/${slug}/` },
+  { title: title, href: `/work/${id}/` },
 ];
 ---
 

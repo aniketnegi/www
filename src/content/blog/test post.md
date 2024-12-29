@@ -77,4 +77,4 @@ LaTeX?!!
     - look weird
 4. internal linking like [[blog post]]
     - requires mdx
-    - slug is from root so broken
+    - slug is from root so broken (slug is called id as of Astro v5. Kinda retarded breaking change from v4 to v5 imo. package conflicts and solving breaking conflicts broke me)

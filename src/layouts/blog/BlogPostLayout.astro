@@ -17,11 +17,11 @@ import type { MarkdownHeading } from "astro";
 
 interface Props {
   frontmatter: CollectionEntry<"blog">;
-  slug: string;
+  id: string;
   headings: MarkdownHeading[];
 }
 
-const { frontmatter, slug } = Astro.props as Props;
+const { frontmatter, id } = Astro.props as Props;
 
 const { title, tags, description, banner, pubDate } = frontmatter.data;
 
@@ -34,7 +34,7 @@ const pageTitle = `blog / ${title}`;
 const current = "blog";
 const breadcrumbs: Array<Crumb> = [
   { title: "BLOG", href: "/blog/" },
-  { title: title, href: `/blog/${slug}/` },
+  { title: title, href: `/blog/${id}/` },
 ];
 ---
 

@@ -11,7 +11,7 @@ const { blogPost } = Astro.props as Props;
 
 const { title, tags, description, author, pubDate } = blogPost.data;
 
-const url = `/blog/${blogPost.slug}/`;
+const url = `/blog/${blogPost.id}/`;
 
 const dotw = pubDate.toLocaleDateString("default", { weekday: "short" }); // Day of The Week
 const date = `${pubDate.getDate() < 10 ? "0" : ""}${pubDate.getDate().toString().slice(-2)}`;
@@ -24,7 +24,7 @@ const year = pubDate.getFullYear();
         class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:space-x-8 items-start sm:items-center"
     >
         <h3
-            class="font-sans text-xl font-medium transition text-LM-Text dark:text-DM-Text hover:text-orange uppercase tracking-[-.02rem] underline underline-offset-4 decoration-LM-Text-Secondary dark:decoration-DM-Text-Secondary hover:decoration-orange"
+            class="font-sans text-xl font-medium transition text-orange hover:underline uppercase tracking-[-.02rem] underline-offset-4 decoration-LM-Text-Secondary dark:decoration-DM-Text-Secondary hover:decoration-orange"
         >
             <a href={url}>{title}</a>
         </h3>

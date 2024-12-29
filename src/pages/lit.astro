@@ -73,7 +73,7 @@ const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
             myProseEntries.length !== 0 ? (
               myProseEntries.map((entry) => (
                 <li>
-                  <a href={`${entry.slug}/`}>{entry.data.title}</a>
+                  <a href={`${entry.id}/`}>{entry.data.title}</a>
                 </li>
               ))
             ) : (
@@ -91,7 +91,7 @@ const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
             myPoemEntries.length !== 0 ? (
               myPoemEntries.map((entry) => (
                 <li>
-                  <a href={`${entry.slug}/`}>{entry.data.title}</a>
+                  <a href={`${entry.id}/`}>{entry.data.title}</a>
                 </li>
               ))
             ) : (
@@ -112,7 +112,7 @@ const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
             foundProseEntries.length !== 0 ? (
               foundProseEntries.map((entry) => (
                 <li>
-                  <a href={`${entry.slug}/`}>
+                  <a href={`${entry.id}/`}>
                     {entry.data.title} ⏤ {entry.data.author}
                   </a>
                 </li>
@@ -132,7 +132,7 @@ const foundPoemEntries = await getCollection("lit", ({ id, data }) => {
             foundPoemEntries.length !== 0 ? (
               foundPoemEntries.map((entry) => (
                 <li>
-                  <a href={`${entry.slug}/`}>
+                  <a href={`${entry.id}/`}>
                     {entry.data.title} ⏤ {entry.data.author}
                   </a>
                 </li>
