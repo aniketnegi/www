@@ -43,7 +43,6 @@ const breadcrumbs: Array<Crumb> = [
             {
                 posts.map((post) => (
                     <li class="">
-                        <>
                             <a
                                 href={`/work/${post.id}/`}
                                 class="uppercase text-LM-Nav-Unselected dark:text-DM-Nav-Unselected hover:text-orange font-semibold text-lg"
@@ -53,7 +52,6 @@ const breadcrumbs: Array<Crumb> = [
                             <span class="font-serif">
                                 &nbsp;⏤&nbsp; {post.data.description}
                             </span>
-                        </>
                     </li>
                 ))
             }
