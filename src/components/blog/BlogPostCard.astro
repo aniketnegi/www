@@ -24,7 +24,8 @@ const year = pubDate.getFullYear();
         class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:space-x-8 items-start sm:items-center"
     >
         <h3
-            class="font-sans text-xl font-medium transition text-orange hover:underline uppercase tracking-[-.02rem] underline-offset-4 decoration-LM-Text-Secondary dark:decoration-DM-Text-Secondary hover:decoration-orange"
+            class="font-sans text-xl font-medium transition text-orange underline decoration-orange underline-offset-4 hover:text-LM-Text  uppercase tracking-[-.02rem] "
+            transition:name={`blog-title-${blogPost.id}`}
         >
             <a href={url}>{title}</a>
         </h3>
