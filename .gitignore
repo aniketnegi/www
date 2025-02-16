@@ -26,3 +26,4 @@ pnpm-debug.log*
 
 # local private stuff folder
 private/
+src/styles/spicetify-text-theme.css
