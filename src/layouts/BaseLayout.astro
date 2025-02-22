@@ -21,6 +21,9 @@ const { title, current, breadcrumbs } = Astro.props as BaseLayoutProps;
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/newsreader";
 import "@fontsource-variable/inter";
+
+import { join } from "node:path";
+import { AstroFont } from "astro-font";
 ---
 
 <!doctype html>
@@ -30,6 +33,46 @@ import "@fontsource-variable/inter";
 >
   <head>
     <Head title={title} />
+    <AstroFont
+      config={[
+        {
+          name: "Departure Mono",
+          src: [
+            {
+              weight: "400",
+              style: "normal",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "DepartureMono-Regular.woff2",
+              ),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          fallback: "monospace",
+        },
+        // {
+        //   name: "Satoshi Variable",
+        //   src: [
+        //     {
+        //       weight: "400",
+        //       style: "normal",
+        //       path: join(
+        //         process.cwd(),
+        //         "public",
+        //         "fonts",
+        //         "Satoshi-Variable.woff2",
+        //       ),
+        //     },
+        //   ],
+        //   preload: true,
+        //   display: "swap",
+        //   fallback: "sans-serif",
+        // },
+      ]}
+    />
     <ThemeManager />
     <ClientRouter />
   </head>

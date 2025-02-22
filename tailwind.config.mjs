@@ -30,6 +30,7 @@ export default {
       "sans": ["Manrope Variable", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
       "serif": ["Newsreader Variable", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
       "mono": ["JetBrains Mono Variable", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+      "logo": ["Departure Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
 
       // my site's payload is 60% fonts. i should just do this instead
       // "sans": ["ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
