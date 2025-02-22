@@ -46,9 +46,20 @@ export default {
           "0 0px 35px rgba(244, 133, 37, 0.2)"
         ],
         glowlight: [
-          "0 0px 20px rgba(185, 107, 19, 0.57)",
-          "0 0px 35px rgba(185, 107, 19, 0.48)"
-        ]
+          "0 0px 10px rgba(255, 165, 0, 0.55)",
+          "0 0px 25px rgba(255, 165, 0, 0.45)",
+          "0 0px 35px rgba(255, 165, 0, 0.15)"
+        ],
+        textGlow: {
+          dark: [
+            "0 0px 10px rgba(255, 255, 255, 0.6)",   // Increased opacity, slightly larger blur
+            "0 0px 20px rgba(255, 255, 255, 0.4)"  // Increased opacity, larger blur
+          ],
+          light: [
+            "0 0px 15px rgba(0, 0, 0, 0.5)",      // Increased opacity, larger blur
+            "0 0px 25px rgba(0, 0, 0, 0.3)"     // Increased opacity, larger blur
+          ]
+        },
       },
       spacing: {
         // '6.5xl': '75rem',

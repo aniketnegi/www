@@ -40,11 +40,11 @@ const { current, breadcrumbs } = Astro.props as NavProps;
         /> -->
         <span
           class:list={[
-            "select-none font-logo text-3xl font-bold text-orange tracking-tight",
+            "font-logo text-2xl text-orange tracking-tight font-semibold",
             current === "home"
-              // ? "drop-shadow-glowlight dark:drop-shadow-glowdark"
-              ? ""
-              : "italic",
+              ? "drop-shadow-glowlight dark:drop-shadow-glowdark"
+              // ? "underline decoration-dashed underline-offset-[0.2rem] underline-orange"
+              : "",
           ]}>ankt</span
         >
       </a>
