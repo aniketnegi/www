@@ -3,11 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "bunx --bun astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "bunx --bun astro preview",
+    "astro": "bunx --bun astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -22,7 +22,6 @@
     "@fontsource-variable/newsreader": "^5.0.19",
     "@playform/compress": "^0.1.6",
     "astro": "^5.1.1",
-    "astro-font": "^0.1.81",
     "astro-icon": "^1.1.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
