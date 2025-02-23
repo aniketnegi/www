@@ -25,7 +25,7 @@ const { current, breadcrumbs } = Astro.props as NavProps;
     <div class="flex w-full flex-row items-center justify-between sm:w-fit">
       <a href="/">
         <!-- font(playfair display) is too big(40kb) for 4 letters, might optimise in future -->
-        <!-- <Image
+        <Image
           src={logo}
           alt="Aniket Negi's personal Logo"
           width={73}
@@ -37,8 +37,8 @@ const { current, breadcrumbs } = Astro.props as NavProps;
               ? "drop-shadow-glowlight dark:drop-shadow-glowdark"
               : "",
           ]}
-        /> -->
-        <span
+        />
+        <!-- <span
           class:list={[
             "font-logo text-2xl text-orange tracking-tight font-semibold",
             current === "home"
@@ -46,7 +46,7 @@ const { current, breadcrumbs } = Astro.props as NavProps;
               // ? "underline decoration-dashed underline-offset-[0.2rem] underline-orange"
               : "",
           ]}>ankt</span
-        >
+        > -->
       </a>
       <div class="block sm:hidden">
         <ThemeIcon />
